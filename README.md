@@ -79,9 +79,15 @@ user-supplied flower artwork is placed at both edges of the hero. The large
 "Welcome to my Portfolio" heading follows the Canva Light mode layout without
 the tagline; its initial is cleaned of the white export effect and the word
 uses natural letter spacing with a soft shadow. The selected Canva portrait is
-exported separately from the design elements.
-Education and experience details remain placeholders until their details are
-provided. The CV button downloads the supplied resume image directly.
-Project-category filters and the day/night theme switch are interactive, and
-the skills section reflects the interests described in the portfolio.
-Project details can be added before enabling project links.
+exported separately from the design elements. The My Journey section uses the
+provided open-book illustration with separate, vertically scrollable education
+and experience timelines. Timeline entries follow the supplied reference.
+The CV button downloads the supplied resume image directly. Project-category
+filters and the day/night theme switch are interactive, and the skills section
+reflects the interests described in the portfolio. Project details can be
+added before enabling project links.
+
+The "My Journey" heading uses the Amoresa Regular webfont from
+[FontDownloader](https://fontdownloader.net/amoresa-font/), which lists the
+font as free for personal, non-commercial use. A commercial license is required
+for commercial use.

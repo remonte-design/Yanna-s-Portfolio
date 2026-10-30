@@ -11,6 +11,14 @@ html {
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Amoresa";
+  src: url("/assets/fonts/Amoresa-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .portfolio-page[hidden] {
   display: none;
 }
@@ -554,58 +562,164 @@ html {
 }
 
 .journey-section {
-  padding: clamp(70px, 10vw, 120px) max(6vw, calc((100vw - 1160px) / 2));
+  padding: clamp(54px, 7vw, 88px) max(4vw, calc((100vw - 1240px) / 2)) clamp(64px, 8vw, 100px);
   text-align: center;
 }
 
 .journey-section > h2 {
-  margin: 0 0 34px;
+  margin: 0 0 clamp(12px, 2vw, 28px);
   color: #a5214f;
-  font-family: "Dancing Script", "Cormorant Garamond", cursive;
+  font-family: "Amoresa", "Dancing Script", "Cormorant Garamond", cursive;
   font-size: clamp(48px, 8vw, 90px);
-  font-weight: 700;
+  font-weight: 400;
+  line-height: 1;
 }
 
-.journey-book {
-  display: grid;
-  min-height: 360px;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  border: 4px solid var(--portfolio-ink);
-  border-radius: 50% 50% 20px 20px / 12% 12% 20px 20px;
-  background: var(--portfolio-surface);
-  box-shadow: 0 12px 0 #f18e6d, 0 15px 0 #382c2a;
+.journey-spread {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1220px);
+  aspect-ratio: 1365 / 768;
+  margin-inline: auto;
+}
+
+.journey-book-art {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .journey-page {
   display: flex;
+  position: absolute;
+  top: 20%;
+  bottom: 14%;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  padding: 32px;
+  min-height: 0;
+  text-align: left;
 }
 
-.journey-page + .journey-page {
-  border-left: 2px solid var(--portfolio-ink);
+.journey-page--education {
+  left: 15%;
+  width: 31%;
+}
+
+.journey-page--experience {
+  left: 49%;
+  width: 31%;
 }
 
 .journey-page h3 {
-  margin: 0;
-  color: var(--portfolio-rose);
-  font-size: clamp(26px, 4vw, 42px);
-  font-style: italic;
+  flex: 0 0 auto;
+  margin: 0 0 8px;
+  color: #bd6f78;
+  font-family: "Dancing Script", "Cormorant Garamond", cursive;
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 700;
+  text-align: center;
 }
 
-.journey-page p {
-  margin: 0;
-  font-size: 22px;
+.journey-timeline {
+  min-height: 0;
+  flex: 0 1 280px;
+  max-height: 280px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 4px 10px 12px 16px;
+  scrollbar-color: #8e966d #f5d5d0;
+  scrollbar-width: thin;
 }
 
-.journey-page span {
-  color: var(--portfolio-ink);
+.journey-timeline:focus-visible {
+  outline: 2px solid #bd6f78;
+  outline-offset: -2px;
+}
+
+.journey-timeline::-webkit-scrollbar {
+  width: 8px;
+}
+
+.journey-timeline::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background: #f5d5d0;
+}
+
+.journey-timeline::-webkit-scrollbar-thumb {
+  border: 2px solid #f5d5d0;
+  border-radius: 8px;
+  background: #8e966d;
+}
+
+.journey-events {
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid #8e966d;
+  list-style: none;
+}
+
+.journey-event {
+  position: relative;
+  padding: 0 0 18px;
+}
+
+.journey-event:last-child {
+  padding-bottom: 4px;
+}
+
+.journey-event::before {
+  position: absolute;
+  top: 5px;
+  left: -24px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #48451f;
+  content: "";
+}
+
+.journey-event time {
+  display: inline-block;
+  margin-bottom: 3px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #f3a5c1;
+  color: #633d42;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: clamp(9px, 0.8vw, 11px);
+  line-height: 1.4;
+}
+
+.journey-event h4 {
+  margin: 0;
+  color: #6b3040;
+  font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.journey-event p {
+  margin: 3px 0 0;
+  color: #48451f;
+  font-size: clamp(11px, 1.05vw, 14px);
+  line-height: 1.28;
+}
+
+.journey-event .journey-organization {
+  color: #657234;
+  font-weight: 700;
+}
+
+.journey-timeline {
+  scrollbar-gutter: stable;
+}
+
+.journey-page .journey-organization {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(10px, 0.9vw, 12px);
 }
 
 .projects-section {
@@ -956,21 +1070,56 @@ html {
     padding: 64px 20px;
   }
 
-  .journey-book {
-    min-height: 320px;
-    border-radius: 38% 38% 16px 16px / 9% 9% 16px 16px;
+  .journey-spread {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    aspect-ratio: auto;
+  }
+
+  .journey-book-art {
+    position: static;
+    z-index: auto;
+    width: 100%;
+    height: auto;
   }
 
   .journey-page {
-    gap: 14px;
-    padding: 18px 10px;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 0;
+    padding: 20px;
+    border: 2px solid #48451f;
+    border-radius: 16px;
+    background: var(--portfolio-surface);
+    box-shadow: 0 6px 0 #f18e6d, 0 9px 0 #382c2a;
   }
 
-  .journey-page p {
+  .journey-page h3 {
+    font-size: 30px;
+  }
+
+  .journey-timeline {
+    height: 260px;
+    max-height: 245px;
+    flex: none;
+    padding-right: 12px;
+  }
+
+  .journey-event time {
+    font-size: 10px;
+  }
+
+  .journey-event h4 {
     font-size: 18px;
   }
 
-  .journey-page span {
+  .journey-event p {
+    font-size: 14px;
+  }
+
+  .journey-page .journey-organization {
     font-size: 12px;
   }
 
@@ -1025,6 +1174,11 @@ html {
 }
 
 @media (min-width: 761px) and (max-width: 1100px) {
+  .journey-timeline {
+    flex-basis: 245px;
+    max-height: 245px;
+  }
+
   .portfolio-hero {
     min-height: 900px;
     align-items: flex-start;
@@ -1105,6 +1259,18 @@ html {
 
   .profile-name h2 {
     font-size: 24px;
+  }
+
+  .journey-section {
+    padding-inline: 14px;
+  }
+
+  .journey-page {
+    padding: 16px;
+  }
+
+  .journey-timeline {
+    height: 240px;
   }
 }
 

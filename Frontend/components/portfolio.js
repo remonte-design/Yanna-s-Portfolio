@@ -152,15 +152,57 @@ export function mountPortfolio(container) {
 
         <section class="journey-section patterned-section" id="experiences" aria-labelledby="journey-title">
           <h2 id="journey-title">My Journey</h2>
-          <div class="journey-book" data-scroll-reveal>
-            <article class="journey-page">
-              <h3>Education</h3>
-              <p>Education details coming soon.</p>
-            </article>
-            <article class="journey-page">
-              <h3>Experience</h3>
-              <p>Experience details coming soon.</p>
-            </article>
+          <div class="journey-spread" data-scroll-reveal>
+            <img
+              class="journey-book-art"
+              src="/assets/images/canva/journey-open-book.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <section class="journey-page journey-page--education" aria-labelledby="journey-education-title">
+              <h3 id="journey-education-title">Education</h3>
+              <div class="journey-timeline" role="region" tabindex="0" aria-label="Education timeline; scroll to see all entries">
+                <ol class="journey-events">
+                  <li class="journey-event">
+                    <time datetime="2017-04-01">April 1, 2017</time>
+                    <h4>Elementary Education</h4>
+                    <p class="journey-organization">Golden Wisdom School of Calamba Inc.</p>
+                    <p>Built firm foundations of my academic journey, developing curiosity, creativity, and a love for learning.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2021-07-17">July 17, 2021</time>
+                    <h4>Junior High School</h4>
+                    <p class="journey-organization">Palo-Alto Integrated School</p>
+                    <p>Explored new interests, strengthened my academic skills, and discovered my passion for creativity and technology.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2021-07-17">July 17, 2021</time>
+                    <h4>Senior High School</h4>
+                    <p class="journey-organization">STI College Calamba</p>
+                    <p>Gained foundational knowledge in business, information technology, and entrepreneurship while developing analytical and leadership skills.</p>
+                  </li>
+                </ol>
+              </div>
+            </section>
+            <section class="journey-page journey-page--experience" aria-labelledby="journey-experience-title">
+              <h3 id="journey-experience-title">Experience</h3>
+              <div class="journey-timeline" role="region" tabindex="0" aria-label="Experience timeline; scroll to see all entries">
+                <ol class="journey-events">
+                  <li class="journey-event">
+                    <time datetime="2024-11-18">November 18, 2024</time>
+                    <h4>CCC Hackathon 2024</h4>
+                    <p class="journey-organization">City College of Calamba</p>
+                    <p>Participated in a competitive programming event that challenged my problem-solving, critical thinking, and teamwork skills while developing innovative solutions under time constraints.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2025-06-01">June 1–3, 2025</time>
+                    <h4>UPLB Game Jam 2025</h4>
+                    <p class="journey-organization">Jeepney Jam</p>
+                    <p>Collaborated in designing Jeepney Jam, a Tagalog-based game inspired by Filipino culture, combining creative game design, programming, and interactive gameplay.</p>
+                  </li>
+                </ol>
+              </div>
+            </section>
           </div>
         </section>
 
