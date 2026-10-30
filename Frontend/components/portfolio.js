@@ -228,25 +228,168 @@ export function mountPortfolio(container) {
           </div>
         </section>
 
+        <div class="portfolio-divider" aria-hidden="true">
+          <div class="portfolio-divider__track">
+            <img class="portfolio-divider__image" src="/assets/images/canva/portfolio-border.png" alt="" />
+            <img class="portfolio-divider__image" src="/assets/images/canva/portfolio-border.png" alt="" />
+          </div>
+        </div>
+
         <section class="projects-section" id="projects" aria-labelledby="projects-title">
-          <h2 id="projects-title">Featured Projects</h2>
-          <div class="project-filters" role="group" aria-label="Filter projects by category" data-scroll-reveal>
-            <button type="button" data-project-filter="all" aria-pressed="true">All Projects</button>
-            <button type="button" data-project-filter="prelims" aria-pressed="false">Prelims</button>
-            <button type="button" data-project-filter="midterms" aria-pressed="false">Midterms</button>
-            <button type="button" data-project-filter="finals" aria-pressed="false">Finals</button>
+          <div class="project-heading-row">
+            <div>
+              <p class="project-eyebrow">A collection of my work</p>
+              <h2 id="projects-title">Featured Projects</h2>
+            </div>
+          </div>
+          <div class="project-toolbar" data-scroll-reveal>
+            <div class="project-filters" role="group" aria-label="Filter projects by category">
+              <button type="button" data-project-filter="all" aria-pressed="false">View All</button>
+              <button type="button" data-project-filter="prelims" aria-pressed="true">Prelims</button>
+              <button type="button" data-project-filter="midterms" aria-pressed="false">Midterms</button>
+              <button type="button" data-project-filter="finals" aria-pressed="false">Finals</button>
+            </div>
+            <label class="project-search">
+              <span class="visually-hidden">Search projects</span>
+              <input type="search" data-project-search placeholder="Search all projects..." />
+            </label>
           </div>
           <div class="project-grid" data-scroll-reveal>
-            <article class="project-card" data-project-category="prelims">
-              <img src="/assets/images/canva/project-eatenlist.png" alt="EaterList project website preview" />
+            <article
+              class="project-card"
+              data-project-category="finals"
+              data-project-activity="Activity 5"
+              data-project-section="3-IT11"
+              data-project-date="October 21, 2026"
+              data-project-drive="https://drive.google.com/drive/folders/1wpHA-P2tJNP-yfIEiv8OQJ8mGxw43Urt?usp=sharing"
+              data-project-description="Created a low-fidelity prototype for my portfolio website, mapping out the landing page and the key sections visitors can explore. This early wireframe helped me organize the content and plan a clear path through the site, from the introduction and About Me section to featured projects, technical skills, and contact information. Sketching the layout first gave me a simple way to explore the page structure and navigation before moving on to the finished visual design."
+              data-project-gallery='[{"src":"/assets/images/projects/portfolio-low-fidelity-wireframe.jpg","label":"Low-Fidelity Wireframe","alt":"Hand-drawn low-fidelity portfolio website prototype showing the landing page and sections for education, featured projects, technical skills, contact, and footer"}]'
+            >
+              <img src="/assets/images/projects/portfolio-low-fidelity-wireframe.jpg" alt="Hand-drawn low-fidelity portfolio website prototype" />
+              <div class="project-card-copy">
+                <span class="project-tag">Finals</span>
+                <h3>Portfolio Low-Fidelity Prototype</h3>
+                <p>Planned the portfolio's page structure and key sections in a hand-drawn wireframe.</p>
+                <button class="project-card-arrow" type="button" aria-label="View Portfolio Low-Fidelity Prototype activity details">→</button>
+              </div>
+            </article>
+            <article
+              class="project-card"
+              data-project-category="midterms"
+              data-project-activity="Activity 3"
+              data-project-section="3-IT11"
+              data-project-date="September 02, 2026"
+              data-project-drive="https://drive.google.com/drive/folders/1GEgbeHpo9PvaFRS7ZSlwefSZS3LfmlQC?usp=sharing"
+              data-project-description="This activity allowed me to explore how creativity and visual communication work together in advertising. I wanted to capture the cozy feeling of autumn while making the featured product the center of attention. Through the combination of illustration, color harmony, and typography, I learned how thoughtful design choices can transform a simple product promotion into an engaging visual experience. It reminded me that effective design is not just about making something attractive, but also about communicating a message that connects with its intended audience."
+              data-project-gallery='[{"src":"/assets/images/projects/brewhaven-sketch.jpg","label":"Traditional Sketch","alt":"Traditional sketch of the BrewHaven Cafe pumpkin-shaped cup and saucer"},{"src":"/assets/images/projects/brewhaven-photoshop.png","label":"Photoshop Artwork","alt":"Digital BrewHaven pumpkin cup artwork open in Photoshop"},{"src":"/assets/images/projects/brewhaven-social-post.png","label":"Social Media Advertisement","alt":"Finished BrewHaven Cafe Pumpkin Spice Latte social media advertisement"},{"src":"/assets/images/projects/brewhaven-landing-page.png","label":"Landing Page Design","alt":"BrewCafe landing page promoting its Pumpkin Spice Latte"},{"src":"/assets/images/projects/brewhaven-newspaper-graphics.png","label":"Newspaper Graphics","alt":"BrewCafe Daily Roast News newspaper graphics featuring autumn coffee"}]'
+            >
+              <img src="/assets/images/projects/brewhaven-social-post.png" alt="Autumn-themed BrewHaven Cafe Pumpkin Spice Latte social media advertisement" />
+              <div class="project-card-copy">
+                <span class="project-tag">Midterms</span>
+                <h3>BrewHaven Cafe</h3>
+                <p>Designed an autumn-inspired social media advertisement featuring BrewHaven Café's Pumpkin Spice Latte, combining warm colors, playful typography, and creative illustrations to create an inviting promotional design.</p>
+                <button class="project-card-arrow" type="button" aria-label="View BrewHaven Cafe activity details">→</button>
+              </div>
+            </article>
+            <article
+              class="project-card"
+              data-project-category="midterms"
+              data-project-activity="Activity 4"
+              data-project-section="3-IT11"
+              data-project-date="September 09, 2026"
+              data-project-drive="https://drive.google.com/drive/folders/1pqdgn0mkFeL_bV05VmYzgVCAlQzemrtd?usp=sharing"
+              data-project-description="This activity challenged me to explore a more adventurous and expressive approach to digital design. Through Trick or Treat, I wanted to capture the excitement, mystery, and playful spirit of Halloween while creating a visually engaging composition. I experimented with contrasting colors, decorative illustrations, and different typography styles to establish a distinct atmosphere. Beyond improving my technical and creative skills, this experience taught me the importance of visual storytelling and how even the smallest design elements can contribute to a larger concept. It reminded me that creativity has no single style or limitation, and that exploring unfamiliar themes can open doors to new ideas and artistic possibilities."
+              data-project-gallery='[{"src":"/assets/images/projects/trick-or-treat-sketch.jpg","label":"Traditional Sketch","alt":"Traditional Trick or Treat Candy Shop poster sketch with green and red lettering"},{"src":"/assets/images/projects/trick-or-treat-digital-poster.png","label":"Digital Poster","alt":"Finished purple Trick or Treat Candy Shop digital poster"}]'
+            >
+              <img src="/assets/images/projects/trick-or-treat-digital-poster.png" alt="Halloween-themed Trick or Treat Candy Shop digital poster" />
+              <div class="project-card-copy">
+                <span class="project-tag">Midterms</span>
+                <h3>Trick or Treat</h3>
+                <p>Created a Halloween-themed digital poster featuring bold typography, vibrant colors, and playful spooky elements to capture the festive spirit of Halloween.</p>
+                <button class="project-card-arrow" type="button" aria-label="View Trick or Treat activity details">→</button>
+              </div>
+            </article>
+            <article
+              class="project-card"
+              data-project-category="others"
+              data-project-activity="EaterList Project"
+              data-project-section="Web Development"
+              data-project-date="A.Y. 2025"
+              data-project-description="Designed and developed EaterList, a dynamic restaurant discovery website featuring personalized search filters and database-driven functionality to enhance user experience."
+              data-project-gallery='[{"src":"/assets/images/canva/project-eatenlist-card.png","label":"Website Preview","alt":"EaterList restaurant discovery website preview"}]'
+            >
+              <img src="/assets/images/canva/project-eatenlist-card.png" alt="EaterList project website preview" />
+              <div class="project-card-copy">
+                <span class="project-tag">Others</span>
+                <h3>EaterList</h3>
+                <p>Restaurant discovery with personalized filters and database-driven search.</p>
+                <button class="project-card-arrow" type="button" aria-label="View EaterList project details">→</button>
+              </div>
+            </article>
+            <article
+              class="project-card"
+              data-project-category="prelims"
+              data-project-activity="Activity 1"
+              data-project-section="3-IT11"
+              data-project-date="August 05, 2026"
+              data-project-drive="https://drive.google.com/drive/folders/13p6zKQNli5kJ_QEYJgUiZ_uNRbAwX80F?usp=sharing"
+              data-project-description="“Berry in Bloom” is more than a simple illustration of strawberries and flowers. It represents the beauty of growth and the journey of becoming. Just like a strawberry begins as a small flower before blossoming into a fruit, I believe that every dream, achievement, and meaningful change starts with something small.&#10;&#10;Through this artwork, I wanted to express that growth is not always immediate or visible. Sometimes, it happens quietly through the lessons we learn, the challenges we overcome, and the courage we find to keep moving forward. Every stage of life has its own beauty, and every small step contributes to the person we are becoming."
+              data-project-gallery='[{"src":"/assets/images/projects/berry-in-bloom-traditional.jpg","label":"Traditional Drawing","alt":"Traditional colored-pencil drawing of strawberries, leaves, and blossoms"}]'
+            >
+              <img src="/assets/images/projects/berry-in-bloom-traditional.jpg" alt="Traditional drawing of Berry in Bloom" />
               <div class="project-card-copy">
                 <span class="project-tag">Prelims</span>
-                <h3>EaterList</h3>
-                <p>Project details coming soon.</p>
+                <h3>Berry in Bloom</h3>
+                <p>A traditional strawberry drawing with leafy details and blossoms.</p>
+                <button class="project-card-arrow" type="button" aria-label="View Berry in Bloom activity details">→</button>
+              </div>
+            </article>
+            <article
+              class="project-card"
+              data-project-category="prelims"
+              data-project-activity="Activity 2"
+              data-project-section="3-IT11"
+              data-project-date="August 17, 2026"
+              data-project-drive="https://drive.google.com/drive/folders/1inBC-U2iRCou4FBq7cyl9TaWCm43rWQo?usp=sharing"
+              data-project-description="Strawcat is more than just a character I created; it is a little reflection of who I am. Behind its cheerful appearance and playful personality lies a representation of my curiosity, imagination, and passion for creating things that bring joy to others.&#10;&#10;I designed Strawcat to embody the parts of myself that I hope to carry throughout my journey: a heart that finds happiness in the simplest things, a mind that never stops exploring possibilities, and the courage to pursue dreams even when the path ahead is uncertain.&#10;&#10;As the little companion guiding visitors through my portfolio, Strawcat symbolizes my journey as both a creative individual and an aspiring professional. Every step it takes represents my willingness to learn, grow, and discover new opportunities. Like Strawcat, I may still be finding my way, but I believe that even the smallest steps can lead to extraordinary destinations."
+              data-project-gallery='[{"src":"/assets/images/projects/strawcat-traditional.jpg","label":"Traditional Drawing","alt":"Traditional Strawcat character and logo sketches"},{"src":"/assets/images/projects/strawcat-photoshop.png","label":"Photoshop Screenshot","alt":"Strawcat badge artwork open in Adobe Photoshop"},{"src":"/assets/images/projects/strawcat-badge-logo.png","label":"Badge Logo","alt":"Finished circular Strawcat badge logo"},{"src":"/assets/images/projects/strawcat-horizontal-logo.png","label":"Horizontal Logo","alt":"Finished horizontal Strawcat logo for Yanna"},{"src":"/assets/images/projects/strawcat-vertical-logo.png","label":"Vertical Logo","alt":"Finished vertical Strawcat logo for Yanna"}]'
+            >
+              <img src="/assets/images/projects/strawcat-traditional.jpg" alt="Traditional Strawcat character and logo sketches" />
+              <div class="project-card-copy">
+                <span class="project-tag">Prelims</span>
+                <h3>Strawcat</h3>
+                <p>A strawberry-inspired character with a complete logo set.</p>
+                <button class="project-card-arrow" type="button" aria-label="View Strawcat activity details">→</button>
               </div>
             </article>
           </div>
-          <p class="project-empty-state" role="status" hidden>No projects in this category yet.</p>
+          <p class="project-empty-state" role="status" hidden>No projects match your filters. Try another category or search.</p>
+          <dialog class="project-modal" aria-labelledby="project-modal-activity">
+            <div class="project-modal__panel">
+              <header class="project-modal__header">
+                <h3 id="project-modal-activity" data-project-modal-activity>Activity One</h3>
+                <button class="project-modal__close" type="button" aria-label="Close project details">×</button>
+              </header>
+              <div class="project-modal__content">
+                <button class="project-modal__arrow" type="button" data-project-modal-previous aria-label="Previous picture">‹</button>
+                <article class="project-modal__details">
+                  <h4 data-project-modal-title></h4>
+                  <img data-project-modal-image src="" alt="" />
+                  <p class="project-modal__image-caption" data-project-modal-image-caption></p>
+                  <div class="project-modal__thumbnails" role="group" aria-label="Project images" data-project-modal-thumbnails></div>
+                  <div class="project-modal__summary">
+                    <p class="project-modal__section"><strong>Section:</strong> <span data-project-modal-section></span></p>
+                    <p class="project-modal__category" data-project-modal-category></p>
+                    <a class="project-modal__drive-link" data-project-modal-drive target="_blank" rel="noopener noreferrer">See GDrive ↗</a>
+                    <p class="project-modal__date"><strong>Date:</strong> <span data-project-modal-date></span></p>
+                    <p><strong>Explanation:</strong><br /><span data-project-modal-description></span></p>
+                  </div>
+                </article>
+                <button class="project-modal__arrow" type="button" data-project-modal-next aria-label="Next picture">›</button>
+              </div>
+              <p class="visually-hidden" data-project-modal-status aria-live="polite"></p>
+            </div>
+          </dialog>
         </section>
 
         <section class="skills-section patterned-section" id="skills" aria-labelledby="technical-skills-title">
@@ -269,9 +412,47 @@ export function mountPortfolio(container) {
       </main>
 
       <footer class="portfolio-contact" id="contact" data-scroll-reveal>
-        <h2>Contact</h2>
-        <p>Have a question or want to connect?</p>
-        <a href="mailto:remonte@gmail.com">remonte@gmail.com</a>
+        <div class="portfolio-contact__inner">
+          <section class="portfolio-contact__links" aria-labelledby="contact-title">
+            <h2 id="contact-title">Contact Me:</h2>
+            <div class="portfolio-contact__link-grid">
+              <a class="portfolio-contact__link" href="https://www.facebook.com/riyannajelaine.monte.3/" target="_blank" rel="noopener noreferrer">
+                <span class="portfolio-contact__icon portfolio-contact__icon--facebook" aria-hidden="true">f</span>
+                <span>riyannajelaine.monte.3</span>
+              </a>
+              <a class="portfolio-contact__link" href="mailto:remonte@ccc.edu.ph">
+                <svg class="portfolio-contact__icon portfolio-contact__icon--email" aria-hidden="true" viewBox="0 0 40 32">
+                  <rect x="1.5" y="1.5" width="37" height="29" rx="3" />
+                  <path d="m3 4 17 14L37 4" />
+                </svg>
+                <span>remonte@ccc.edu.ph</span>
+              </a>
+              <a class="portfolio-contact__link" href="https://www.instagram.com/imriyanna_/" target="_blank" rel="noopener noreferrer">
+                <span class="portfolio-contact__icon portfolio-contact__icon--instagram" aria-hidden="true">
+                  <svg viewBox="0 0 32 32">
+                    <rect x="3" y="3" width="26" height="26" rx="7" />
+                    <circle cx="16" cy="16" r="6" />
+                    <circle class="portfolio-contact__instagram-dot" cx="23.5" cy="8.8" r="1.5" />
+                  </svg>
+                </span>
+                <span>imriyanna_</span>
+              </a>
+              <a class="portfolio-contact__link" href="https://github.com/remonte-design" target="_blank" rel="noopener noreferrer">
+                <span class="portfolio-contact__icon portfolio-contact__icon--github" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 .9a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.17 1.72 1.17 1 .1.76 2.45 3.35 1.76.1-.73.4-1.22.72-1.5-2.48-.28-5.1-1.25-5.1-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.1-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.6 1.55.22 2.7.1 2.98.72.8 1.16 1.8 1.16 3.02 0 4.31-2.63 5.27-5.12 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .9z" />
+                  </svg>
+                </span>
+                <span>remonte-design</span>
+              </a>
+            </div>
+          </section>
+          <blockquote class="portfolio-contact__verse">
+            <h3>Psalm 73:26</h3>
+            <p>“My flesh and my heart may fail, but God is the strength of my heart and my portion forever.”</p>
+          </blockquote>
+        </div>
+        <a class="portfolio-contact__back-top" href="#home">Back on top ↑</a>
       </footer>
     </div>
   `;
@@ -282,8 +463,25 @@ export function mountPortfolio(container) {
   const carousel = container.querySelector(".hero-carousel");
   const carouselSlides = [...container.querySelectorAll(".hero-carousel-slide")];
   const projectFilters = container.querySelector(".project-filters");
+  const projectSearch = container.querySelector("[data-project-search]");
+  const projectGrid = container.querySelector(".project-grid");
   const projectCards = [...container.querySelectorAll(".project-card")];
   const emptyState = container.querySelector(".project-empty-state");
+  const projectModal = container.querySelector(".project-modal");
+  const projectModalClose = container.querySelector(".project-modal__close");
+  const projectModalPrevious = container.querySelector("[data-project-modal-previous]");
+  const projectModalNext = container.querySelector("[data-project-modal-next]");
+  const projectModalActivity = container.querySelector("[data-project-modal-activity]");
+  const projectModalTitle = container.querySelector("[data-project-modal-title]");
+  const projectModalImage = container.querySelector("[data-project-modal-image]");
+  const projectModalImageCaption = container.querySelector("[data-project-modal-image-caption]");
+  const projectModalThumbnails = container.querySelector("[data-project-modal-thumbnails]");
+  const projectModalSection = container.querySelector("[data-project-modal-section]");
+  const projectModalDate = container.querySelector("[data-project-modal-date]");
+  const projectModalCategory = container.querySelector("[data-project-modal-category]");
+  const projectModalDrive = container.querySelector("[data-project-modal-drive]");
+  const projectModalDescription = container.querySelector("[data-project-modal-description]");
+  const projectModalStatus = container.querySelector("[data-project-modal-status]");
   const navLinks = [...container.querySelectorAll(".portfolio-nav a")];
   const revealTargets = [...container.querySelectorAll("[data-scroll-reveal]")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -296,7 +494,26 @@ export function mountPortfolio(container) {
     throw new Error("The portfolio theme control could not be found.");
   }
 
-  if (!(projectFilters instanceof HTMLElement) || !(emptyState instanceof HTMLElement)) {
+  if (
+    !(projectFilters instanceof HTMLElement) ||
+    !(projectSearch instanceof HTMLInputElement) ||
+    !(projectGrid instanceof HTMLElement) ||
+    !(emptyState instanceof HTMLElement) ||
+    !(projectModal instanceof HTMLDialogElement) ||
+    !(projectModalClose instanceof HTMLButtonElement) ||
+    !(projectModalPrevious instanceof HTMLButtonElement) ||
+    !(projectModalNext instanceof HTMLButtonElement) ||
+    !(projectModalActivity instanceof HTMLElement) ||
+    !(projectModalTitle instanceof HTMLElement) ||
+    !(projectModalImage instanceof HTMLImageElement) ||
+    !(projectModalImageCaption instanceof HTMLElement) ||
+    !(projectModalThumbnails instanceof HTMLElement) ||
+    !(projectModalSection instanceof HTMLElement) ||
+    !(projectModalDate instanceof HTMLElement) ||
+    !(projectModalCategory instanceof HTMLElement) ||
+    !(projectModalDescription instanceof HTMLElement) ||
+    !(projectModalStatus instanceof HTMLElement)
+  ) {
     throw new Error("The project filters could not be initialized.");
   }
 
@@ -403,6 +620,37 @@ export function mountPortfolio(container) {
     themeIcon.textContent = isNight ? "☾" : "☼";
   });
 
+  let activeProjectCategory = "prelims";
+
+  function updateVisibleProjects() {
+    const searchTerm = projectSearch.value.trim().toLocaleLowerCase();
+    let visibleProjects = 0;
+
+    projectCards.forEach((card) => {
+      const matchesCategory =
+        activeProjectCategory === "all" ||
+        card.dataset.projectCategory === activeProjectCategory;
+      const searchableContent = [
+        card.textContent,
+        card.dataset.projectActivity,
+        card.dataset.projectDate,
+        card.dataset.projectSection,
+        card.dataset.projectCategory,
+        card.dataset.projectDescription,
+      ]
+        .join(" ")
+        .toLocaleLowerCase();
+      const matchesSearch = searchableContent.includes(searchTerm);
+      const isVisible = matchesCategory && matchesSearch;
+      card.hidden = !isVisible;
+      visibleProjects += Number(isVisible);
+    });
+
+    emptyState.hidden = visibleProjects > 0;
+  }
+
+  updateVisibleProjects();
+
   projectFilters.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {
       return;
@@ -418,17 +666,196 @@ export function mountPortfolio(container) {
       throw new Error("The selected project category is missing.");
     }
 
-    let visibleProjects = 0;
+    activeProjectCategory = category;
+    if (category === "all") {
+      projectSearch.value = "";
+    }
     projectFilters.querySelectorAll("button[data-project-filter]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button === filter));
     });
 
-    projectCards.forEach((card) => {
-      const matches = category === "all" || card.dataset.projectCategory === category;
-      card.hidden = !matches;
-      visibleProjects += Number(matches);
+    updateVisibleProjects();
+  });
+
+  projectSearch.addEventListener("input", () => {
+    activeProjectCategory = "all";
+    projectFilters.querySelectorAll("button[data-project-filter]").forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.dataset.projectFilter === "all"));
+    });
+    updateVisibleProjects();
+  });
+
+  let activeProjectIndex = 0;
+  let activeGalleryIndex = 0;
+  let activeProjectGallery = [];
+  let projectModalTrigger;
+
+  function showProjectGalleryImage(index) {
+    if (activeProjectGallery.length === 0) {
+      throw new Error("The selected activity has no gallery images.");
+    }
+
+    activeGalleryIndex = (index + activeProjectGallery.length) % activeProjectGallery.length;
+    const image = activeProjectGallery[activeGalleryIndex];
+    projectModalImage.src = image.src;
+    projectModalImage.alt = image.alt;
+    projectModalImageCaption.textContent = image.label;
+
+    [...projectModalThumbnails.children].forEach((thumbnail, thumbnailIndex) => {
+      thumbnail.setAttribute("aria-pressed", String(thumbnailIndex === activeGalleryIndex));
+    });
+    projectModalPrevious.disabled = activeProjectGallery.length <= 1;
+    projectModalNext.disabled = activeProjectGallery.length <= 1;
+
+    projectModalStatus.textContent =
+      `Showing ${projectModalActivity.textContent}, picture ${activeGalleryIndex + 1} of ` +
+      `${activeProjectGallery.length}: ${image.label}.`;
+  }
+
+  function showProjectDetails(index) {
+    if (projectCards.length === 0) {
+      throw new Error("Project details cannot be opened because no projects are available.");
+    }
+
+    activeProjectIndex = (index + projectCards.length) % projectCards.length;
+    const card = projectCards[activeProjectIndex];
+    const title = card.querySelector("h3");
+    const category = card.querySelector(".project-tag");
+    const galleryJson = card.dataset.projectGallery;
+    const activity = card.dataset.projectActivity;
+    const section = card.dataset.projectSection;
+    const date = card.dataset.projectDate;
+    const driveLink = card.dataset.projectDrive;
+    const description = card.dataset.projectDescription;
+
+    if (
+      !(title instanceof HTMLElement) ||
+      !(category instanceof HTMLElement) ||
+      !galleryJson ||
+      !activity ||
+      !section ||
+      !date ||
+      !description
+    ) {
+      throw new Error("The selected project is missing details required by the modal.");
+    }
+
+    const gallery = JSON.parse(galleryJson);
+    if (
+      !Array.isArray(gallery) ||
+      gallery.length === 0 ||
+      !gallery.every(
+        (image) =>
+          typeof image.src === "string" &&
+          typeof image.label === "string" &&
+          typeof image.alt === "string",
+      )
+    ) {
+      throw new Error("The selected activity has an invalid image gallery.");
+    }
+
+    activeProjectGallery = gallery;
+    activeGalleryIndex = 0;
+    projectModalActivity.textContent = activity;
+    projectModalTitle.textContent = title.textContent;
+    projectModalSection.textContent = section;
+    projectModalDate.textContent = date;
+    projectModalCategory.textContent = category.textContent;
+    if (driveLink) {
+      projectModalDrive.href = driveLink;
+      projectModalDrive.setAttribute("aria-label", `Open ${activity} Google Drive folder in a new tab`);
+      projectModalDrive.hidden = false;
+    } else {
+      projectModalDrive.removeAttribute("href");
+      projectModalDrive.hidden = true;
+    }
+    projectModalDescription.textContent = description;
+    projectModalThumbnails.replaceChildren();
+
+    activeProjectGallery.forEach((image, imageIndex) => {
+      const thumbnail = document.createElement("button");
+      thumbnail.type = "button";
+      thumbnail.className = "project-modal__thumbnail";
+      thumbnail.setAttribute("aria-label", `Show ${image.label}`);
+      thumbnail.setAttribute("aria-pressed", String(imageIndex === activeGalleryIndex));
+
+      const thumbnailImage = document.createElement("img");
+      thumbnailImage.src = image.src;
+      thumbnailImage.alt = "";
+      thumbnail.append(thumbnailImage);
+      thumbnail.addEventListener("click", () => showProjectGalleryImage(imageIndex));
+      projectModalThumbnails.append(thumbnail);
     });
 
-    emptyState.hidden = visibleProjects > 0;
+    showProjectGalleryImage(0);
+  }
+
+  projectGrid.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    const trigger = event.target.closest(".project-card-arrow");
+    if (!(trigger instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const card = trigger.closest(".project-card");
+    const index = projectCards.indexOf(card);
+    if (index < 0) {
+      throw new Error("The selected project card could not be found.");
+    }
+
+    projectModalTrigger = trigger;
+    showProjectDetails(index);
+    projectModal.showModal();
+    document.documentElement.classList.add("project-modal-open");
   });
+
+  projectModalClose.addEventListener("click", () => {
+    projectModal.close();
+  });
+
+  projectModalPrevious.addEventListener("click", () => {
+    showProjectGalleryImage(activeGalleryIndex - 1);
+  });
+
+  projectModalNext.addEventListener("click", () => {
+    showProjectGalleryImage(activeGalleryIndex + 1);
+  });
+
+  projectModal.addEventListener("click", (event) => {
+    if (event.target === projectModal) {
+      projectModal.close();
+    }
+  });
+
+  projectModal.addEventListener("close", () => {
+    document.documentElement.classList.remove("project-modal-open");
+    projectModalTrigger?.focus();
+    projectModalTrigger = undefined;
+  });
+
+  projectModal.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      projectModal.close();
+    } else if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      if (activeProjectGallery.length > 1) {
+        showProjectGalleryImage(activeGalleryIndex - 1);
+      }
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      if (activeProjectGallery.length > 1) {
+        showProjectGalleryImage(activeGalleryIndex + 1);
+      }
+    }
+  });
+
+  projectModal.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    projectModal.close();
+  });
+
 }

@@ -82,10 +82,29 @@ uses natural letter spacing with a soft shadow. The selected Canva portrait is
 exported separately from the design elements. The My Journey section uses the
 provided open-book illustration with separate, vertically scrollable education
 and experience timelines. Timeline entries follow the supplied reference.
+The supplied pixel-art Yanna border separates the journey and featured-project
+sections with a seamless horizontal loop; it becomes static for reduced-motion
+preferences.
+The Featured Projects section follows the supplied Canva layout, including its
+background artwork, category filters, project search, and responsive project
+cards. Project cards open a keyboard-accessible modal with project details,
+previous/next navigation, and a dark lavender backdrop.
+Prelims includes Berry in Bloom and Strawcat, with the supplied traditional
+drawings and Strawcat's Photoshop, badge, horizontal-logo, and vertical-logo
+images available in the activity gallery. The modal arrows navigate images
+within the selected activity and are disabled when it contains one image.
+Midterms includes BrewHaven Cafe (Activity 3) and Trick or Treat (Activity 4),
+with the supplied sketches, finished artwork, and BrewHaven design materials
+available in their activity galleries.
+Each activity from Prelims, Midterms, and Finals also links to its Google Drive
+folder from the activity modal.
+EaterList is categorized under Others rather than Prelims.
+The contact footer links to the portfolio owner's CCC email, Facebook,
+GitHub, and Instagram, alongside Psalm 73:26 and a back-to-top link.
 The CV button downloads the supplied resume image directly. Project-category
-filters and the day/night theme switch are interactive, and the skills section
-reflects the interests described in the portfolio. Project details can be
-added before enabling project links.
+filters, search, the view-all reset, and the day/night theme switch are
+interactive, and the skills section reflects the interests described in the
+portfolio. Project details can be added before enabling project links.
 
 The "My Journey" heading uses the Amoresa Regular webfont from
 [FontDownloader](https://fontdownloader.net/amoresa-font/), which lists the
