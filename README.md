@@ -65,7 +65,13 @@ and activate the paper card to expand a pink reveal into the portfolio page.
 The profile, interests, and contact details are based on the provided portfolio
 design. The Canva exports supply the Strawcat brand mark, profile photo,
 interest illustrations, EaterList project preview, floral artwork, and pink
-background pattern. The hero cycles through the five supplied personal photos
+background pattern. The supplied notebook illustration frames the About Me
+text, with a transparent background so its paper, paperclip, and tabs sit
+cleanly over the page. Leckerli One is bundled under its SIL Open Font License
+for the About, Personal Interest, name-label, and basic-information headings.
+The user-provided pink interest icons have transparent backgrounds. The About
+and basic-information cards are widened to keep their text readable and inside
+their artwork. The hero cycles through the five supplied personal photos
 every six seconds, with dimmed previews above and below the active photo; all
 three frames stay within the hero. The About portrait overlaps the top edge of
 its panel with a decorative curved arrow leading toward the name. The
@@ -75,7 +81,7 @@ the tagline; its initial is cleaned of the white export effect and the word
 uses natural letter spacing with a soft shadow. The selected Canva portrait is
 exported separately from the design elements.
 Education and experience details remain placeholders until their details are
-provided. Project-category filters and the day/night theme switch are
-interactive, and the skills section reflects the interests described in the
-portfolio. Add the CV file and project details before enabling their downloads
-or adding project links.
+provided. The CV button downloads the supplied resume image directly.
+Project-category filters and the day/night theme switch are interactive, and
+the skills section reflects the interests described in the portfolio.
+Project details can be added before enabling project links.

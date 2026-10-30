@@ -1,3 +1,16 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+@font-face {
+  font-family: "Leckerli One";
+  src: url("/assets/fonts/LeckerliOne-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .portfolio-page[hidden] {
   display: none;
 }
@@ -48,25 +61,34 @@
   z-index: 5;
   top: 0;
   display: flex;
-  min-height: 72px;
+  min-height: 84px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 10px clamp(20px, 5vw, 72px);
+  padding: 12px clamp(20px, 5vw, 72px);
   border-bottom: 2px solid var(--portfolio-border);
   background: var(--portfolio-header);
 }
 
 .portfolio-brand {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   flex: 0 0 auto;
   place-items: center;
   border-radius: 50%;
   background: #ffd1e7;
   text-decoration: none;
   overflow: hidden;
+  transition:
+    transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 280ms ease;
+}
+
+.portfolio-brand:hover,
+.portfolio-brand:focus-visible {
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 5px 16px rgb(73 44 59 / 20%);
 }
 
 .portfolio-brand img {
@@ -81,17 +103,43 @@
   min-width: 0;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(12px, 3vw, 38px);
+  gap: clamp(14px, 3vw, 40px);
 }
 
 .portfolio-nav a {
-  font-size: 18px;
+  position: relative;
+  padding: 8px 0;
+  font-size: 20px;
   text-decoration: none;
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.portfolio-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 2px;
+  background: var(--portfolio-rose);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .portfolio-nav a:hover,
-.portfolio-nav a:focus-visible {
+.portfolio-nav a:focus-visible,
+.portfolio-nav a[aria-current="location"] {
   color: var(--portfolio-rose);
+  transform: translateY(-2px);
+}
+
+.portfolio-nav a:hover::after,
+.portfolio-nav a:focus-visible::after,
+.portfolio-nav a[aria-current="location"]::after {
+  transform: scaleX(1);
 }
 
 .portfolio-theme {
@@ -107,6 +155,32 @@
   font-family: Inter, system-ui, sans-serif;
   font-size: 11px;
   text-decoration: none;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.portfolio-theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(73 44 59 / 18%);
+}
+
+.portfolio-site section[id],
+.portfolio-site footer[id] {
+  scroll-margin-top: 92px;
+}
+
+.portfolio-site [data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition:
+    opacity 650ms ease,
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.portfolio-site [data-scroll-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .portfolio-theme:focus-visible,
@@ -271,7 +345,7 @@
 .about-section {
   position: relative;
   z-index: 1;
-  width: min(calc(100% - 32px), 1240px);
+  width: min(calc(100% - 32px), 1360px);
   margin: -32px auto 0;
   padding: clamp(26px, 5vw, 64px) clamp(26px, 5vw, 64px) 64px;
   border-radius: 52px;
@@ -284,8 +358,8 @@
   display: flex;
   min-height: 250px;
   align-items: center;
-  margin: -220px 0 38px;
-  padding-left: clamp(300px, 31vw, 370px);
+  margin: -140px 0 38px;
+  padding-left: clamp(280px, 29vw, 350px);
 }
 
 .profile-photo {
@@ -304,9 +378,10 @@
 
 .profile-arrow {
   position: absolute;
-  top: 126px;
-  left: clamp(204px, 21vw, 260px);
-  width: clamp(100px, 9vw, 112px);
+  top: 142px;
+  left: clamp(214px, 21vw, 250px);
+  width: clamp(120px, 10vw, 140px);
+  height: auto;
   overflow: visible;
   fill: none;
   stroke: #777a08;
@@ -317,17 +392,20 @@
 
 .profile-name {
   padding-top: 12px;
+  transform: translate(clamp(48px, 4vw, 56px), clamp(48px, 4vw, 58px));
 }
 
 .profile-name p,
 .about-note h3,
 .basic-information h3,
 .interests-section > h3 {
+  font-family: "Leckerli One", cursive;
   margin: 0 0 8px;
   color: var(--portfolio-rose);
   font-size: clamp(20px, 2.8vw, 32px);
-  font-style: italic;
-  font-weight: 700;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .profile-name h2 {
@@ -339,7 +417,7 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
   gap: clamp(22px, 4vw, 56px);
 }
 
@@ -350,9 +428,11 @@
 }
 
 .about-note {
-  border: 1px solid #e8c8a9;
-  background: var(--portfolio-note);
-  box-shadow: 8px 8px 0 #e7d57e, 12px 12px 0 #eedfe7;
+  min-height: 470px;
+  padding: 78px clamp(36px, 4vw, 58px) 58px clamp(46px, 5vw, 70px);
+  border: 0;
+  background: url("/assets/images/canva/about-note.png") center / 100% 100% no-repeat;
+  box-shadow: none;
 }
 
 .about-note h3,
@@ -362,11 +442,12 @@
 
 .about-note p {
   margin: 14px 0 0;
-  font-size: clamp(16px, 1.5vw, 19px);
+  font-size: clamp(17px, 1.4vw, 20px);
   line-height: 1.5;
 }
 
 .basic-information {
+  padding: clamp(28px, 3.4vw, 44px);
   border-radius: 24px;
   background: var(--portfolio-information);
   box-shadow: 0 6px 13px rgb(66 53 60 / 20%);
@@ -381,16 +462,21 @@
 
 .basic-information dl div {
   display: flex;
+  align-items: baseline;
   flex-wrap: wrap;
   gap: 8px;
 }
 
 .basic-information dt {
+  flex: 0 1 43%;
   font-weight: 700;
 }
 
 .basic-information dd {
+  min-width: 0;
+  flex: 1 1 48%;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .basic-information dd a {
@@ -418,12 +504,10 @@
 
 .interest-icon {
   display: block;
-  width: clamp(64px, 8vw, 96px);
-  height: 80px;
+  width: clamp(72px, 8.5vw, 104px);
+  height: 90px;
   margin: 0 auto;
-  min-height: 80px;
-  border-radius: 10px;
-  background: var(--portfolio-blush);
+  min-height: 90px;
   object-fit: contain;
 }
 
@@ -447,7 +531,8 @@
   margin-top: 30px;
 }
 
-.cv-action button {
+.cv-action .cv-download {
+  display: inline-block;
   padding: 10px 24px;
   border: 0;
   border-radius: 24px;
@@ -456,17 +541,16 @@
   font: inherit;
   font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
 }
 
-.cv-action button:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
+.cv-action .cv-download:hover {
+  background: #777a08;
 }
 
-.cv-action span {
-  color: #706656;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 12px;
+.cv-action .cv-download:focus-visible {
+  outline: 3px solid var(--portfolio-rose);
+  outline-offset: 3px;
 }
 
 .journey-section {
@@ -719,14 +803,14 @@
 
 @media (max-width: 760px) {
   .portfolio-header {
-    min-height: 62px;
+    min-height: 72px;
     gap: 12px;
-    padding: 8px 14px;
+    padding: 8px 16px;
   }
 
   .portfolio-brand {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
   }
 
   .portfolio-nav {
@@ -743,12 +827,12 @@
 
   .portfolio-nav a {
     flex: 0 0 auto;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .portfolio-theme {
     flex: 0 0 auto;
-    padding: 5px 9px;
+    padding: 7px 11px;
   }
 
   .portfolio-hero {
@@ -819,14 +903,15 @@
   }
 
   .profile-arrow {
-    top: 92px;
-    left: calc(50% + 48px);
-    width: 90px;
-    transform: rotate(12deg);
+    top: 100px;
+    left: calc(50% + 44px);
+    width: 86px;
+    transform: rotate(125deg);
   }
 
   .profile-name {
     padding-top: 0;
+    transform: none;
     text-align: center;
   }
 
@@ -844,6 +929,15 @@
     padding: 22px;
   }
 
+  .about-note {
+    min-height: 470px;
+    padding: 72px 38px 54px 46px;
+  }
+
+  .about-note p {
+    font-size: 17px;
+  }
+
   .interest-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 26px 18px;
@@ -855,7 +949,7 @@
   }
 
   .cv-action {
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .journey-section {
@@ -987,7 +1081,7 @@
   }
 
   .portfolio-nav a {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .profile-photo {
@@ -995,9 +1089,14 @@
   }
 
   .profile-arrow {
-    top: 82px;
-    left: calc(50% + 40px);
+    top: 90px;
+    left: calc(50% + 38px);
     width: 76px;
+  }
+
+  .about-note {
+    min-height: 480px;
+    padding: 68px 28px 50px 38px;
   }
 
   .profile-name p {
@@ -1010,6 +1109,23 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .portfolio-site [data-scroll-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .portfolio-brand,
+  .portfolio-nav a,
+  .portfolio-nav a::after,
+  .portfolio-theme {
+    transition: none;
+  }
+
   .portfolio-nav {
     scroll-behavior: auto;
   }

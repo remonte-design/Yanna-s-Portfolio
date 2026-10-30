@@ -35,68 +35,11 @@ body {
   background: #fde8ec;
 }
 
-.loading-header {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.wordmark {
-  position: absolute;
-  top: 2.8%;
-  left: 4.79%;
-  color: inherit;
-  font-size: clamp(18px, 2.25cqw, 30px);
-  letter-spacing: -0.06em;
-  text-decoration: none;
-  pointer-events: auto;
-}
-
-.chapter-label {
-  position: absolute;
-  top: 3.95%;
-  left: 47.12%;
-  width: 10.2%;
-  margin: 0;
-  color: #d4607a;
-  font-family: system-ui, sans-serif;
-  font-size: clamp(8px, 0.72cqw, 12px);
-  font-weight: 400;
-  letter-spacing: 0.025em;
-  text-align: center;
-}
-
-.close-mark {
-  position: absolute;
-  top: 2.5%;
-  right: 4.8%;
-  color: #6b3040;
-  font-family: system-ui, sans-serif;
-  font-size: clamp(16px, 1.7cqw, 22px);
-  line-height: 1;
-}
-
 .loading-content {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-}
-
-.eyebrow {
-  position: absolute;
-  top: 14.7%;
-  left: 40.83%;
-  width: 18.34%;
-  margin: 0;
-  color: #d4607a;
-  font-family: system-ui, sans-serif;
-  font-size: clamp(9px, 0.78cqw, 11px);
-  font-weight: 400;
-  letter-spacing: 0.025em;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .loading-title {
@@ -170,7 +113,7 @@ body {
 
 .loading-footer {
   position: absolute;
-  top: 80.2%;
+  top: 88%;
   left: 0;
   width: 100%;
   color: #8b4557;
@@ -178,30 +121,9 @@ body {
   text-align: center;
 }
 
-.loading-footer p,
-.loading-footer a {
-  margin: 0;
-}
-
-.loading-footer > p:first-child {
-  font-size: clamp(12px, 1.87cqw, 25px);
-}
-
-.loading-footer > .sequence-caption {
-  position: absolute;
-  top: 3.44cqw;
-  left: 0;
-  width: 100%;
-  color: #6d625f;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: clamp(8px, 0.75cqw, 10px);
-  font-style: normal;
-  letter-spacing: 0.025em;
-}
-
 .loading-footer > .skip-intro {
   position: absolute;
-  top: 5.54cqw;
+  top: 0;
   left: 0;
   width: 100%;
   padding: 0;
@@ -215,7 +137,6 @@ body {
   text-decoration: none;
 }
 
-.is-ready .eyebrow,
 .is-ready .loading-title span {
   animation: reveal 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
@@ -224,7 +145,7 @@ body {
   animation-delay: 120ms;
 }
 
-.is-ready .loading-footer {
+.is-ready .skip-intro {
   animation: reveal 900ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
 }
 
@@ -247,11 +168,6 @@ body {
     aspect-ratio: auto;
   }
 
-  .eyebrow {
-    left: 6%;
-    width: 88%;
-  }
-
   .loading-title {
     left: 5%;
     width: 90%;
@@ -260,14 +176,6 @@ body {
   .scene-art {
     width: 107.784%;
     height: auto;
-  }
-
-  .loading-footer > .sequence-caption {
-    top: 6.25cqw;
-  }
-
-  .loading-footer > .skip-intro {
-    top: 10.5cqw;
   }
 }
 

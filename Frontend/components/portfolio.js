@@ -21,7 +21,7 @@ export function mountPortfolio(container) {
 
       <main>
         <section class="portfolio-hero patterned-section" id="home" aria-labelledby="portfolio-title">
-          <div class="hero-copy">
+          <div class="hero-copy" data-scroll-reveal>
             <p class="hero-kicker">Welcome to my</p>
             <h1 id="portfolio-title" aria-label="Portfolio" tabindex="-1">
               <img src="/assets/images/canva/portfolio-initial-clean.png" alt="" />
@@ -70,15 +70,15 @@ export function mountPortfolio(container) {
         </section>
 
         <section class="about-section" id="about" aria-labelledby="about-title">
-          <div class="profile-heading">
+          <div class="profile-heading" data-scroll-reveal>
             <img
               class="profile-photo"
               src="/assets/images/canva/profile-photo.png"
               alt="Riyanna Jelaine E. Monte"
             />
-            <svg class="profile-arrow" viewBox="0 0 120 84" aria-hidden="true">
-              <path d="M5 8C8 42 34 65 61 54c20-8 29-24 34-32" />
-              <path d="m80 27 16-8 5 17" />
+            <svg class="profile-arrow" viewBox="0 0 128 72" aria-hidden="true">
+              <path d="M4 20c7 18 17 38 33 30 15-8 5-20-4-13-9 8 9 22 30 19 17-3 34-18 50-37" />
+              <path d="m95 20 19-4-2 20" />
             </svg>
             <div class="profile-name">
               <p>My name is</p>
@@ -86,7 +86,7 @@ export function mountPortfolio(container) {
             </div>
           </div>
 
-          <div class="about-grid">
+          <div class="about-grid" data-scroll-reveal>
             <article class="about-note">
               <h3 id="about-title">About Me</h3>
               <p>
@@ -113,7 +113,7 @@ export function mountPortfolio(container) {
             </article>
           </div>
 
-          <section class="interests-section" aria-labelledby="interests-title">
+          <section class="interests-section" aria-labelledby="interests-title" data-scroll-reveal>
             <h3 id="interests-title">Personal Interest</h3>
             <div class="interest-grid">
               <article class="interest-card">
@@ -140,14 +140,19 @@ export function mountPortfolio(container) {
           </section>
 
           <div class="cv-action">
-            <button type="button" disabled title="Add your CV file to enable this download">Download CV</button>
-            <span>Add your CV file to enable download</span>
+            <a
+              class="cv-download"
+              href="/assets/cv/Riyanna-Monte-CV.png"
+              download="Riyanna-Monte-CV.png"
+            >
+              Download CV
+            </a>
           </div>
         </section>
 
         <section class="journey-section patterned-section" id="experiences" aria-labelledby="journey-title">
           <h2 id="journey-title">My Journey</h2>
-          <div class="journey-book">
+          <div class="journey-book" data-scroll-reveal>
             <article class="journey-page">
               <h3>Education</h3>
               <p>Education details coming soon.</p>
@@ -161,13 +166,13 @@ export function mountPortfolio(container) {
 
         <section class="projects-section" id="projects" aria-labelledby="projects-title">
           <h2 id="projects-title">Featured Projects</h2>
-          <div class="project-filters" role="group" aria-label="Filter projects by category">
+          <div class="project-filters" role="group" aria-label="Filter projects by category" data-scroll-reveal>
             <button type="button" data-project-filter="all" aria-pressed="true">All Projects</button>
             <button type="button" data-project-filter="prelims" aria-pressed="false">Prelims</button>
             <button type="button" data-project-filter="midterms" aria-pressed="false">Midterms</button>
             <button type="button" data-project-filter="finals" aria-pressed="false">Finals</button>
           </div>
-          <div class="project-grid">
+          <div class="project-grid" data-scroll-reveal>
             <article class="project-card" data-project-category="prelims">
               <img src="/assets/images/canva/project-eatenlist.png" alt="EaterList project website preview" />
               <div class="project-card-copy">
@@ -182,7 +187,7 @@ export function mountPortfolio(container) {
 
         <section class="skills-section patterned-section" id="skills" aria-labelledby="technical-skills-title">
           <h2 id="technical-skills-title">Technical Skills</h2>
-          <div class="skills-grid">
+          <div class="skills-grid" data-scroll-reveal>
             <article class="skill-card">
               <h3>Web Development</h3>
               <p>Exploring ways to build useful digital experiences.</p>
@@ -199,7 +204,7 @@ export function mountPortfolio(container) {
         </section>
       </main>
 
-      <footer class="portfolio-contact" id="contact">
+      <footer class="portfolio-contact" id="contact" data-scroll-reveal>
         <h2>Contact</h2>
         <p>Have a question or want to connect?</p>
         <a href="mailto:remonte@gmail.com">remonte@gmail.com</a>
@@ -215,6 +220,9 @@ export function mountPortfolio(container) {
   const projectFilters = container.querySelector(".project-filters");
   const projectCards = [...container.querySelectorAll(".project-card")];
   const emptyState = container.querySelector(".project-empty-state");
+  const navLinks = [...container.querySelectorAll(".portfolio-nav a")];
+  const revealTargets = [...container.querySelectorAll("[data-scroll-reveal]")];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (
     !(themeToggle instanceof HTMLButtonElement) ||
@@ -260,6 +268,50 @@ export function mountPortfolio(container) {
   }
 
   updateCarouselSlides();
+
+  if (reducedMotion.matches) {
+    revealTargets.forEach((target) => target.classList.add("is-revealed"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  }
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        navLinks.forEach((link) => {
+          if (link.hash === `#${entry.target.id}`) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      });
+    },
+    { rootMargin: "-88px 0px -65% 0px", threshold: 0 },
+  );
+
+  ["home", "about", "experiences", "projects", "skills", "contact"].forEach((id) => {
+    const section = container.querySelector(`#${id}`);
+    if (section) {
+      sectionObserver.observe(section);
+    }
+  });
 
   container.addEventListener("portfolio:visible", () => {
     if (!carouselTimer) {
