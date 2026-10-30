@@ -142,21 +142,22 @@
   min-height: min(650px, 72vw);
   align-items: center;
   overflow: hidden;
-  padding: 64px max(8vw, calc((100vw - 1180px) / 2));
+  padding: 64px max(6vw, calc((100vw - 1240px) / 2));
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
+  width: min(62%, 830px);
 }
 
 .hero-kicker {
-  margin: 0 0 2px 6px;
+  margin: 0 0 10px 6px;
   color: #647044;
   font-family: Inter, system-ui, sans-serif;
-  font-size: clamp(12px, 1.5vw, 18px);
+  font-size: clamp(20px, 2.4vw, 34px);
   font-weight: 600;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
 }
 
@@ -164,39 +165,107 @@
   display: flex;
   align-items: center;
   margin: 0;
-  color: #8d9668;
-  font-size: clamp(70px, 10.5vw, 136px);
-  font-weight: 500;
-  letter-spacing: -0.07em;
+  color: #777a08;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(92px, 8.8vw, 128px);
+  font-weight: 700;
+  letter-spacing: 0.012em;
   line-height: 0.95;
+  white-space: nowrap;
 }
 
 .hero-copy h1 img {
   display: block;
   width: auto;
-  height: clamp(106px, 17vw, 190px);
+  height: clamp(174px, 17vw, 250px);
   flex: 0 0 auto;
   object-fit: contain;
+  filter: drop-shadow(0 5px 5px rgb(73 44 59 / 20%));
 }
 
 .hero-copy h1 span {
-  margin-left: -0.09em;
+  margin-left: -0.035em;
+  text-shadow: 0 4px 5px rgb(73 44 59 / 22%);
 }
 
-.hero-intro {
-  margin: 20px 0 0 8px;
-  color: #80515b;
-  font-size: clamp(18px, 2vw, 25px);
-  font-style: italic;
+.hero-flower--left {
+  transform: none;
 }
 
-.hero-pictures-artwork {
+.hero-flower--right {
+  transform: scaleX(-1);
+}
+
+.hero-flower {
   position: absolute;
-  right: max(6vw, calc((100vw - 1240px) / 2));
-  bottom: 0;
-  width: clamp(280px, 36vw, 460px);
+  z-index: 0;
+  bottom: -16%;
+  width: clamp(260px, 30vw, 400px);
   height: auto;
   pointer-events: none;
+  user-select: none;
+}
+
+.hero-flower--left {
+  left: -3%;
+}
+
+.hero-flower--right {
+  right: -5%;
+}
+
+.hero-carousel {
+  position: absolute;
+  z-index: 2;
+  top: 47.5%;
+  right: 5.5%;
+  width: clamp(380px, 38vw, 500px);
+  height: clamp(450px, 46vw, 560px);
+  transform: translateY(-50%);
+}
+
+.hero-carousel-slide {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 84%;
+  height: auto;
+  aspect-ratio: 1.45;
+  box-sizing: border-box;
+  object-fit: cover;
+  border: 9px solid rgb(255 247 235 / 94%);
+  border-radius: 26px;
+  background: #fff7eb;
+  box-shadow: 0 12px 30px rgb(73 44 59 / 25%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.52);
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hero-carousel-slide.is-hidden {
+  pointer-events: none;
+}
+
+.hero-carousel-slide.is-previous {
+  z-index: 1;
+  opacity: 0.38;
+  transform: translate(-50%, calc(-50% - 82%)) scale(0.49);
+}
+
+.hero-carousel-slide.is-next {
+  z-index: 1;
+  opacity: 0.38;
+  transform: translate(-50%, calc(-50% + 82%)) scale(0.49);
+}
+
+.hero-carousel-slide.is-active {
+  z-index: 2;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .about-section {
@@ -204,28 +273,50 @@
   z-index: 1;
   width: min(calc(100% - 32px), 1240px);
   margin: -32px auto 0;
-  padding: clamp(26px, 5vw, 64px);
+  padding: clamp(26px, 5vw, 64px) clamp(26px, 5vw, 64px) 64px;
   border-radius: 52px;
   background: var(--portfolio-blush);
   box-shadow: 0 14px 32px rgb(91 55 74 / 12%);
 }
 
 .profile-heading {
+  position: relative;
   display: flex;
-  min-height: 150px;
+  min-height: 250px;
   align-items: center;
-  gap: clamp(20px, 5vw, 68px);
-  margin-bottom: 34px;
+  margin: -220px 0 38px;
+  padding-left: clamp(300px, 31vw, 370px);
 }
 
 .profile-photo {
   display: block;
-  width: clamp(116px, 19vw, 220px);
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: clamp(210px, 22vw, 260px);
   aspect-ratio: 1;
   flex: 0 0 auto;
+  border: 9px solid #fff7eb;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 5px 16px rgb(64 45 45 / 22%);
+  box-shadow: 0 8px 20px rgb(64 45 45 / 24%);
+}
+
+.profile-arrow {
+  position: absolute;
+  top: 126px;
+  left: clamp(204px, 21vw, 260px);
+  width: clamp(100px, 9vw, 112px);
+  overflow: visible;
+  fill: none;
+  stroke: #777a08;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
+.profile-name {
+  padding-top: 12px;
 }
 
 .profile-name p,
@@ -661,39 +752,82 @@
   }
 
   .portfolio-hero {
-    min-height: 500px;
+    min-height: 720px;
     align-items: flex-start;
     padding: 82px 8% 60px;
   }
 
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero-kicker {
+    font-size: clamp(14px, 4vw, 18px);
+    letter-spacing: 0.3em;
+  }
+
   .hero-copy h1 {
-    font-size: clamp(52px, 11vw, 84px);
+    font-size: clamp(44px, 10.6vw, 78px);
   }
 
   .hero-copy h1 img {
-    height: clamp(82px, 22vw, 120px);
+    height: clamp(68px, 20vw, 116px);
   }
 
-  .hero-pictures-artwork {
-    right: 4%;
-    bottom: 0;
-    width: min(58vw, 320px);
+  .hero-flower {
+    bottom: -4%;
+    width: clamp(210px, 62vw, 300px);
+  }
+
+  .hero-flower--right {
+    right: -12%;
+  }
+
+  .hero-carousel {
+    top: 65%;
+    right: 50%;
+    width: min(86vw, 350px);
+    height: min(92vw, 380px);
+    transform: translate(50%, -50%);
+  }
+
+  .hero-carousel-slide {
+    border-width: 7px;
+    border-radius: 20px;
   }
 
   .about-section {
     width: calc(100% - 20px);
     margin-top: 0;
-    padding: 24px 20px;
+    padding: 24px 20px 36px;
     border-radius: 36px;
   }
 
   .profile-heading {
-    gap: 18px;
-    margin-bottom: 28px;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    margin: -76px 0 32px;
+    padding: 168px 0 0;
   }
 
   .profile-photo {
-    width: 116px;
+    top: 0;
+    left: 50%;
+    width: 176px;
+    transform: translateX(-50%);
+  }
+
+  .profile-arrow {
+    top: 92px;
+    left: calc(50% + 48px);
+    width: 90px;
+    transform: rotate(12deg);
+  }
+
+  .profile-name {
+    padding-top: 0;
+    text-align: center;
   }
 
   .profile-name h2 {
@@ -796,6 +930,50 @@
   }
 }
 
+@media (min-width: 761px) and (max-width: 1100px) {
+  .portfolio-hero {
+    min-height: 900px;
+    align-items: flex-start;
+    padding-top: 82px;
+  }
+
+  .hero-copy {
+    width: 100%;
+  }
+
+  .hero-kicker {
+    font-size: clamp(22px, 3vw, 30px);
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(86px, 11vw, 112px);
+  }
+
+  .hero-copy h1 img {
+    height: clamp(170px, 20vw, 205px);
+  }
+
+  .hero-carousel {
+    top: 64%;
+    right: 50%;
+    width: min(60vw, 430px);
+    height: min(64vw, 480px);
+    transform: translate(50%, -50%);
+  }
+
+  .hero-flower {
+    width: clamp(360px, 45vw, 480px);
+  }
+
+  .hero-flower--left {
+    left: -4%;
+  }
+
+  .hero-flower--right {
+    right: -6%;
+  }
+}
+
 @media (max-width: 400px) {
   .portfolio-header {
     gap: 8px;
@@ -813,7 +991,13 @@
   }
 
   .profile-photo {
-    width: 92px;
+    width: 156px;
+  }
+
+  .profile-arrow {
+    top: 82px;
+    left: calc(50% + 40px);
+    width: 76px;
   }
 
   .profile-name p {
@@ -828,5 +1012,9 @@
 @media (prefers-reduced-motion: reduce) {
   .portfolio-nav {
     scroll-behavior: auto;
+  }
+
+  .hero-carousel-slide {
+    transition: none;
   }
 }

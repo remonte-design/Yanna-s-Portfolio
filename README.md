@@ -64,12 +64,18 @@ before the homepage paper lifts and scales toward the center. Click or focus
 and activate the paper card to expand a pink reveal into the portfolio page.
 The profile, interests, and contact details are based on the provided portfolio
 design. The Canva exports supply the Strawcat brand mark, profile photo,
-interest illustrations, EaterList project preview, floral Pictures artwork,
-and pink background pattern. The floral artwork uses a transparent-background
-copy of its single-file Canva export so its original colors remain intact over
-the hero background. The selected Canva portfolio initial and portrait are
-exported separately from the design elements. Education and experience details
-remain placeholders until their details are provided. Project-category filters
-and the day/night theme switch are interactive, and the skills section reflects
-the interests described in the portfolio. Add the CV file and project details
-before enabling their downloads or adding project links.
+interest illustrations, EaterList project preview, floral artwork, and pink
+background pattern. The hero cycles through the five supplied personal photos
+every six seconds, with dimmed previews above and below the active photo; all
+three frames stay within the hero. The About portrait overlaps the top edge of
+its panel with a decorative curved arrow leading toward the name. The
+user-supplied flower artwork is placed at both edges of the hero. The large
+"Welcome to my Portfolio" heading follows the Canva Light mode layout without
+the tagline; its initial is cleaned of the white export effect and the word
+uses natural letter spacing with a soft shadow. The selected Canva portrait is
+exported separately from the design elements.
+Education and experience details remain placeholders until their details are
+provided. Project-category filters and the day/night theme switch are
+interactive, and the skills section reflects the interests described in the
+portfolio. Add the CV file and project details before enabling their downloads
+or adding project links.

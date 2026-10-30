@@ -70,6 +70,7 @@ skipIntro.addEventListener("click", openPinkScreen);
 screenTransition.addEventListener("animationend", (event) => {
   if (event.animationName === "pink-screen-reveal") {
     portfolioPage.hidden = false;
+    portfolioPage.dispatchEvent(new Event("portfolio:visible"));
     document.documentElement.classList.add("portfolio-active");
     document.title = "Riyanna Monte | Portfolio";
     loadingScreen.hidden = true;

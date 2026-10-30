@@ -24,16 +24,49 @@ export function mountPortfolio(container) {
           <div class="hero-copy">
             <p class="hero-kicker">Welcome to my</p>
             <h1 id="portfolio-title" aria-label="Portfolio" tabindex="-1">
-              <img src="/assets/images/canva/portfolio-initial.png" alt="" />
+              <img src="/assets/images/canva/portfolio-initial-clean.png" alt="" />
               <span>ortfolio</span>
             </h1>
-            <p class="hero-intro">Curious by nature. Creative by heart.</p>
           </div>
-          <img
-            class="hero-pictures-artwork"
-            src="/assets/images/canva/hero-pictures-group-transparent.png"
-            alt="Pink flowers beside a green Pictures card"
-          />
+          <img class="hero-flower hero-flower--left" src="/assets/images/canva/hero-flower-attached.png" alt="" />
+          <img class="hero-flower hero-flower--right" src="/assets/images/canva/hero-flower-attached.png" alt="" />
+          <div
+            class="hero-carousel"
+            role="region"
+            aria-label="Photos"
+            aria-roledescription="carousel"
+          >
+            <img
+              class="hero-carousel-slide is-active"
+              src="/assets/images/carousel/memory-01-celebration.jpg"
+              alt="Yanna celebrating a school achievement with a friend"
+              aria-hidden="false"
+            />
+            <img
+              class="hero-carousel-slide"
+              src="/assets/images/carousel/memory-02-garden.jpg"
+              alt="Yanna relaxing in a garden"
+              aria-hidden="true"
+            />
+            <img
+              class="hero-carousel-slide"
+              src="/assets/images/carousel/memory-03-friends.jpg"
+              alt="Yanna spending time with her friends"
+              aria-hidden="true"
+            />
+            <img
+              class="hero-carousel-slide"
+              src="/assets/images/carousel/memory-04-campus.jpg"
+              alt="Yanna posing by a campus window"
+              aria-hidden="true"
+            />
+            <img
+              class="hero-carousel-slide"
+              src="/assets/images/carousel/memory-05-view.jpg"
+              alt="Yanna enjoying a mountain view"
+              aria-hidden="true"
+            />
+          </div>
         </section>
 
         <section class="about-section" id="about" aria-labelledby="about-title">
@@ -43,6 +76,10 @@ export function mountPortfolio(container) {
               src="/assets/images/canva/profile-photo.png"
               alt="Riyanna Jelaine E. Monte"
             />
+            <svg class="profile-arrow" viewBox="0 0 120 84" aria-hidden="true">
+              <path d="M5 8C8 42 34 65 61 54c20-8 29-24 34-32" />
+              <path d="m80 27 16-8 5 17" />
+            </svg>
             <div class="profile-name">
               <p>My name is</p>
               <h2>Riyanna Jelaine E. Monte</h2>
@@ -173,6 +210,8 @@ export function mountPortfolio(container) {
   const themeToggle = container.querySelector(".portfolio-theme");
   const themeLabel = container.querySelector(".theme-label");
   const themeIcon = container.querySelector(".theme-icon");
+  const carousel = container.querySelector(".hero-carousel");
+  const carouselSlides = [...container.querySelectorAll(".hero-carousel-slide")];
   const projectFilters = container.querySelector(".project-filters");
   const projectCards = [...container.querySelectorAll(".project-card")];
   const emptyState = container.querySelector(".project-empty-state");
@@ -188,6 +227,45 @@ export function mountPortfolio(container) {
   if (!(projectFilters instanceof HTMLElement) || !(emptyState instanceof HTMLElement)) {
     throw new Error("The project filters could not be initialized.");
   }
+
+  if (!(carousel instanceof HTMLElement) || carouselSlides.length < 2) {
+    throw new Error("The portfolio photo carousel could not be initialized.");
+  }
+
+  let activeCarouselIndex = 0;
+  let carouselTimer;
+
+  function updateCarouselSlides() {
+    carouselSlides.forEach((slide, index) => {
+      let position = "is-hidden";
+      const previousIndex = (activeCarouselIndex - 1 + carouselSlides.length) % carouselSlides.length;
+      const nextIndex = (activeCarouselIndex + 1) % carouselSlides.length;
+
+      if (index === activeCarouselIndex) {
+        position = "is-active";
+      } else if (index === previousIndex) {
+        position = "is-previous";
+      } else if (index === nextIndex) {
+        position = "is-next";
+      }
+
+      slide.className = `hero-carousel-slide ${position}`;
+      slide.setAttribute("aria-hidden", String(position !== "is-active"));
+    });
+  }
+
+  function showNextPhoto() {
+    activeCarouselIndex = (activeCarouselIndex + 1) % carouselSlides.length;
+    updateCarouselSlides();
+  }
+
+  updateCarouselSlides();
+
+  container.addEventListener("portfolio:visible", () => {
+    if (!carouselTimer) {
+      carouselTimer = window.setInterval(showNextPhoto, 6000);
+    }
+  });
 
   themeToggle.addEventListener("click", () => {
     const site = container.querySelector(".portfolio-site");
