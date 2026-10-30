@@ -1,0 +1,17 @@
+{
+  "name": "myportfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A modular portfolio starter using Node.js and MySQL.",
+  "workspaces": [
+    "Backend"
+  ],
+  "scripts": {
+    "start": "npm run start --workspace backend",
+    "dev": "npm run dev --workspace backend",
+    "frontend": "node Frontend/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
