@@ -151,7 +151,9 @@ export function mountPortfolio(container) {
         </section>
 
         <section class="journey-section patterned-section" id="experiences" aria-labelledby="journey-title">
-          <h2 id="journey-title">My Journey</h2>
+          <h2 id="journey-title" aria-label="My Journey">
+            <span class="journey-title-text" data-scroll-reveal aria-hidden="true">My Journey</span>
+          </h2>
           <div class="journey-spread" data-scroll-reveal>
             <img
               class="journey-book-art"
@@ -181,6 +183,16 @@ export function mountPortfolio(container) {
                     <p class="journey-organization">STI College Calamba</p>
                     <p>Gained foundational knowledge in business, information technology, and entrepreneurship while developing analytical and leadership skills.</p>
                   </li>
+                  <li class="journey-event">
+                    <time datetime="2024">Academic Year 2024–Ongoing</time>
+                    <h4>Undergraduate – BS Information Technology</h4>
+                    <p>Pursuing my passion for technology through software development, system analysis, and UI/UX design, combining technical knowledge with creative problem-solving.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2026-07-18">July 18, 2026</time>
+                    <h4>National Certificate II (CSS)</h4>
+                    <p>Demonstrated practical skills and technical competencies through a nationally recognized certification, strengthening my professional qualifications.</p>
+                  </li>
                 </ol>
               </div>
             </section>
@@ -199,6 +211,16 @@ export function mountPortfolio(container) {
                     <h4>UPLB Game Jam 2025</h4>
                     <p class="journey-organization">Jeepney Jam</p>
                     <p>Collaborated in designing Jeepney Jam, a Tagalog-based game inspired by Filipino culture, combining creative game design, programming, and interactive gameplay.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2025">Web Development (A.Y. 2025)</time>
+                    <h4>EaterList</h4>
+                    <p>Designed and developed <em>EaterList</em>, a dynamic restaurant discovery website featuring personalized search filters and database-driven functionality to enhance user experience.</p>
+                  </li>
+                  <li class="journey-event">
+                    <time datetime="2026">Software Engineering I &amp; II (A.Y. 2026)</time>
+                    <h4>Smart Kiosk System</h4>
+                    <p>Contributed as a System Analyst in developing a Smart Kiosk System for Mango Royal Milkshake, integrating self-service ordering, POS, kitchen operations, and sales monitoring into one centralized system.</p>
                   </li>
                 </ol>
               </div>
@@ -319,6 +341,9 @@ export function mountPortfolio(container) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-revealed");
+            if (entry.target.matches(".journey-title-text")) {
+              entry.target.classList.add("is-typing");
+            }
             observer.unobserve(entry.target);
           }
         });
