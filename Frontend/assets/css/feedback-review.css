@@ -1,0 +1,178 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, Arial, sans-serif;
+  color: #48451f;
+  background: #fde8ec;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 10%, rgb(255 255 255 / 75%), transparent 34rem),
+    #fde8ec;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.review-page {
+  width: min(100% - 32px, 720px);
+  min-height: 100vh;
+  margin-inline: auto;
+  padding-block: 28px 64px;
+}
+
+.review-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.review-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.review-card {
+  margin-top: clamp(32px, 9vh, 84px);
+  padding: clamp(24px, 6vw, 52px);
+  border: 1px solid rgb(142 150 109 / 38%);
+  border-radius: 24px;
+  background: #fffaf3;
+  box-shadow: 0 24px 70px rgb(92 54 62 / 13%);
+}
+
+.review-eyebrow {
+  margin: 0 0 8px;
+  color: #a55068;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.review-card h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.2rem, 8vw, 3.5rem);
+  line-height: 1;
+}
+
+.review-intro {
+  max-width: 52ch;
+  margin: 16px 0 24px;
+  line-height: 1.65;
+}
+
+.review-status {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #fff0cf;
+  line-height: 1.5;
+}
+
+.review-content {
+  margin-top: 20px;
+}
+
+.review-details {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.review-details > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.review-details dt {
+  font-weight: 700;
+}
+
+.review-details dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.review-details a {
+  color: #8e3f59;
+}
+
+.review-content blockquote {
+  margin: 24px 0;
+  padding: 18px 20px;
+  border-left: 4px solid #d9849b;
+  border-radius: 0 12px 12px 0;
+  background: #fff2df;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.review-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.review-button {
+  min-height: 46px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.review-button:focus-visible,
+.review-home:focus-visible,
+.review-brand:focus-visible {
+  outline: 3px solid #7651a3;
+  outline-offset: 3px;
+}
+
+.review-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.review-button--approve {
+  color: #fff;
+  background: #66794b;
+}
+
+.review-button--reject {
+  color: #713e4b;
+  background: #f5dce2;
+}
+
+.review-home {
+  display: inline-block;
+  margin-top: 24px;
+  color: #8e3f59;
+}
+
+@media (max-width: 520px) {
+  .review-details > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}

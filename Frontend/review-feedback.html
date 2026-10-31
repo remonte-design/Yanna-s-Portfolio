@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fde8ec" />
+    <title>Review Feedback | Riyanna Monte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/feedback-review.css" />
+    <script src="/components/feedback-review.js" type="module"></script>
+  </head>
+  <body>
+    <main class="review-page">
+      <a class="review-brand" href="/" aria-label="Return to the portfolio">
+        <img src="/assets/images/canva/brand-strawcat.png" alt="" />
+        <span>Yanna's Portfolio</span>
+      </a>
+      <section class="review-card" aria-labelledby="review-title">
+        <p class="review-eyebrow">Private feedback review</p>
+        <h1 id="review-title">A note for your review</h1>
+        <p class="review-intro">
+          This feedback is not public. Approve it to add it to the portfolio, or
+          reject it to keep it private.
+        </p>
+        <p class="review-status" id="review-status" role="status" aria-live="polite">
+          Checking your private review link…
+        </p>
+        <article class="review-content" id="review-content" hidden>
+          <dl class="review-details">
+            <div><dt>From</dt><dd id="review-name"></dd></div>
+            <div><dt>Email</dt><dd><a id="review-email"></a></dd></div>
+            <div><dt>Received</dt><dd id="review-date"></dd></div>
+          </dl>
+          <blockquote id="review-message"></blockquote>
+          <div class="review-actions" id="review-actions" hidden>
+            <button class="review-button review-button--approve" id="approve-feedback" type="button">
+              Approve and publish
+            </button>
+            <button class="review-button review-button--reject" id="reject-feedback" type="button">
+              Reject and keep private
+            </button>
+          </div>
+        </article>
+        <a class="review-home" href="/">Return to the portfolio</a>
+      </section>
+    </main>
+  </body>
+</html>

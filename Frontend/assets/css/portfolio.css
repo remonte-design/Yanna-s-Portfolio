@@ -1436,47 +1436,342 @@ html.project-modal-open {
 
 .skills-section {
   padding: clamp(40px, 6vw, 72px) max(5vw, calc((100vw - 1200px) / 2)) 80px;
+  background-color: #fffaf4;
+  background-image: url("/assets/images/skills/skills-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .skills-section h2 {
-  margin: 0 0 20px;
-  font-size: clamp(30px, 4vw, 44px);
+  position: relative;
+  z-index: 1;
+  margin: 0 0 4px 24px;
+  color: #57bbff;
+  font-family: "Amoresa", "Dancing Script", "Cormorant Garamond", cursive;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 400;
+  line-height: 1.15;
+  -webkit-text-stroke: 1.6px #5211ba;
+  text-shadow:
+    1px 0 #5211ba,
+    -1px 0 #5211ba,
+    0 1px #5211ba,
+    0 -1px #5211ba;
 }
 
-.skills-grid {
+.skills-file-stage {
+  position: relative;
   display: grid;
+  min-height: 390px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 52px 12px 36px;
 }
 
-.skill-card {
-  display: grid;
-  min-height: 150px;
-  place-items: center;
-  align-content: center;
-  gap: 8px;
-  padding: 22px;
-  border: 1px solid #b87c9b;
-  border-radius: 18px;
-  background: var(--portfolio-pink);
-  box-shadow: 0 5px 12px rgb(69 45 61 / 18%);
-  color: var(--portfolio-ink);
+.skills-file-stage::before {
+  position: absolute;
+  z-index: 0;
+  right: 7%;
+  bottom: 24px;
+  left: 7%;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(78 61 49 / 20%);
+  content: "";
+  filter: blur(14px);
+}
+
+.skill-file {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  min-height: 230px;
+  align-items: center;
+  justify-content: center;
+  padding: 38px clamp(18px, 2.8vw, 36px);
+  border: 1px solid #d5a846;
+  border-radius: 12px 18px 18px 12px;
+  background: linear-gradient(145deg, #f9dc91, #edc36a 74%, #e4b451);
+  box-shadow: 0 14px 24px rgb(82 62 38 / 24%), inset 0 1px 0 rgb(255 255 255 / 55%);
+  color: #40371f;
+  cursor: pointer;
+  font: inherit;
   text-align: center;
+  transition:
+    opacity 360ms ease,
+    transform 460ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear,
+    box-shadow 220ms ease;
 }
 
-.skill-card h3,
-.skill-card p {
+.skill-file:hover,
+.skill-file:focus-visible {
+  box-shadow: 0 18px 30px rgb(82 62 38 / 30%), inset 0 1px 0 rgb(255 255 255 / 55%);
+}
+
+.skill-file:focus-visible {
+  outline: 2px solid #5a4524;
+  outline-offset: 3px;
+}
+
+.skill-file::before {
+  position: absolute;
+  z-index: 0;
+  top: -17px;
+  left: 9%;
+  width: 42%;
+  height: 32px;
+  border: 1px solid #d5a846;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(145deg, #f9dc91, #edc36a);
+  content: "";
+}
+
+.skill-file--development {
+  z-index: 1;
+  min-height: 210px;
+  transform: rotate(-7deg) translate(15px, 16px);
+}
+
+.skill-file--design {
+  z-index: 3;
+  min-height: 260px;
+  box-shadow: 0 18px 28px rgb(82 62 38 / 28%), inset 0 1px 0 rgb(255 255 255 / 55%);
+  transform: rotate(1deg) translateY(-8px);
+}
+
+.skill-file--professional {
+  z-index: 2;
+  min-height: 230px;
+  transform: rotate(7deg) translate(-12px, 14px);
+}
+
+.skill-file > h3 {
+  position: relative;
+  z-index: 1;
   margin: 0;
+  color: #5a4524;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(21px, 2.5vw, 32px);
+  font-weight: 500;
+  line-height: 1.12;
 }
 
-.skill-card h3 {
-  font-size: 23px;
-  font-style: italic;
+.skills-open-book {
+  position: fixed;
+  z-index: 8;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background-color: #fffaf4;
+  background-image: url("/assets/images/skills/skills-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  pointer-events: none;
+  transform: perspective(1400px) rotateY(-12deg) scale(0.84) translateY(24px);
+  transform-origin: center;
+  transition:
+    opacity 420ms ease,
+    transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0s linear 420ms;
+  visibility: hidden;
 }
 
-.skill-card p {
-  font-size: 16px;
-  line-height: 1.4;
+.skills-open-book[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: perspective(1400px) rotateY(0) scale(1) translateY(0);
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+.skills-open-book__image {
+  display: block;
+  width: min(1120px, 88vw);
+  max-height: 82vh;
+  min-width: 0;
+  object-fit: contain;
+}
+
+.skills-file-stage.is-open .skill-file {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.78) rotateY(75deg);
+  transition-delay: 0s, 0s, 360ms, 0s;
+  visibility: hidden;
+}
+
+.skills-file-stage.is-open {
+  min-height: min(72vw, 900px);
+}
+
+.skills-open-book__image {
+  border-radius: 0;
+  filter: drop-shadow(0 22px 24px rgb(65 47 30 / 24%));
+}
+
+.skills-book-close {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  right: 16px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid #bd8f42;
+  border-radius: 50%;
+  background: #fffaf4;
+  color: #6a2934;
+  cursor: pointer;
+  font: 28px/1 system-ui, sans-serif;
+}
+
+.skills-book-close:focus-visible {
+  outline: 3px solid #5211ba;
+  outline-offset: 3px;
+}
+
+.work-together {
+  position: relative;
+  min-height: 0;
+  padding: clamp(190px, 14vw, 205px) 24px clamp(24px, 4vw, 48px);
+  background-color: #fff8f1;
+  background-image: url("/assets/images/contact/scratch-paper-background.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: auto 115%;
+  color: #48451f;
+}
+
+.work-together__inner {
+  position: relative;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding-bottom: 88px;
+}
+
+.work-together__inner > h2 {
+  margin: 0 0 12px 7%;
+  color: #48451f;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 700;
+}
+
+.work-postcard {
+  position: relative;
+  width: min(84%, 980px);
+  aspect-ratio: 1.41;
+  margin: 0 auto;
+  background: #fff8d5 url("/assets/images/contact/postcard-frame.png") center / 134.5% 106.7% no-repeat;
+}
+
+.work-together__decorations {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.work-together__flowers {
+  width: clamp(72px, 11vw, 104px);
+  height: auto;
+}
+
+.work-contact-form {
+  position: absolute;
+  inset: 9% 9% 8.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.work-contact-form__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 18px;
+}
+
+.work-contact-form__field {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+  color: #983b56;
+  font-size: clamp(14px, 1.45vw, 19px);
+  font-weight: 600;
+}
+
+.work-contact-form__field--full {
+  grid-column: 1 / -1;
+}
+
+.work-contact-form__field input,
+.work-contact-form__field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d78383;
+  border-radius: 9px;
+  background: #fff8d5;
+  color: #48451f;
+  font: 400 clamp(13px, 1.2vw, 16px)/1.35 "Cormorant Garamond", Georgia, serif;
+}
+
+.work-contact-form__field input {
+  min-height: 38px;
+  padding: 7px 10px;
+}
+
+.work-contact-form__field textarea {
+  min-height: clamp(92px, 12vw, 150px);
+  padding: 9px 10px;
+  resize: vertical;
+}
+
+.work-contact-form__field input:focus-visible,
+.work-contact-form__field textarea:focus-visible {
+  outline: 2px solid #bd6f78;
+  outline-offset: 2px;
+}
+
+.work-contact-form__submit {
+  align-self: center;
+  min-height: 40px;
+  padding: 7px 24px;
+  border: 1px solid #a34a6e;
+  border-radius: 10px;
+  background: #f5a6c9;
+  color: #442638;
+  cursor: pointer;
+  font: 600 clamp(14px, 1.4vw, 18px)/1.2 "Cormorant Garamond", Georgia, serif;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.work-contact-form__submit:hover,
+.work-contact-form__submit:focus-visible {
+  background: #ee8db8;
+  transform: translateY(-1px);
+}
+
+.work-contact-form__status {
+  margin: 0;
+  color: #6d253c;
+  font-size: clamp(11px, 1vw, 14px);
+  text-align: center;
 }
 
 .portfolio-contact {
@@ -1932,13 +2227,63 @@ html.project-modal-open {
     font-size: 14px;
   }
 
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .skills-section h2 {
+    margin-left: 6px;
+    font-size: clamp(36px, 11vw, 48px);
   }
 
-  .skill-card {
-    min-height: 90px;
+  .skills-file-stage {
+    min-height: 290px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 30px 12px 32px;
+  }
+
+  .skills-file-stage::before {
+    display: none;
+  }
+
+  .skill-file,
+  .skill-file--development,
+  .skill-file--design,
+  .skill-file--professional {
+    min-height: 150px;
+    padding: 32px 24px;
+    border-radius: 12px 18px 18px 12px;
+    transform: none;
+  }
+
+  .skill-file--development {
+    transform: rotate(-2deg) translateX(3px);
+  }
+
+  .skill-file--professional {
+    transform: rotate(2deg) translateX(-3px);
+  }
+
+  .skill-file > h3 {
+    font-size: 26px;
+  }
+
+  .skills-file-stage.is-open {
+    min-height: 520px;
+  }
+
+  .skills-open-book {
+    padding: 0;
+  }
+
+  .skills-open-book__image {
+    width: 88vw;
+    max-height: 82vh;
+  }
+
+  .skills-book-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
   }
 
   .project-filters {
@@ -1953,6 +2298,56 @@ html.project-modal-open {
 
   .portfolio-contact {
     padding: 6px 16px 12px;
+  }
+
+  .work-together {
+    min-height: 0;
+    padding: 190px 14px 54px;
+    background-position: center bottom;
+  }
+
+  .work-together__inner > h2 {
+    margin-left: 7%;
+    font-size: clamp(26px, 4vw, 34px);
+  }
+
+  .work-postcard {
+    width: min(84%, 980px);
+  }
+
+  .work-contact-form {
+    inset: 9% 9% 8.5%;
+    gap: 5px;
+  }
+
+  .work-contact-form__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px 8px;
+  }
+
+  .work-contact-form__field {
+    gap: 2px;
+    font-size: clamp(12px, 2.4vw, 16px);
+  }
+
+  .work-contact-form__field input,
+  .work-contact-form__field textarea {
+    font-size: clamp(11px, 2vw, 15px);
+  }
+
+  .work-contact-form__field input {
+    min-height: 32px;
+    padding: 5px 7px;
+  }
+
+  .work-contact-form__field textarea {
+    min-height: clamp(72px, 13vw, 104px);
+    padding: 7px;
+  }
+
+  .work-contact-form__submit {
+    min-height: 34px;
+    padding: 5px 16px;
   }
 
   .portfolio-contact__inner {
@@ -1976,6 +2371,40 @@ html.project-modal-open {
     width: 100px;
     height: 140px;
     opacity: 0.12;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-together__inner {
+    padding-bottom: 0;
+  }
+
+  .work-together__decorations {
+    position: static;
+    margin: 14px 0 0;
+  }
+
+  .work-together__flowers {
+    width: 84px;
+  }
+
+  .work-postcard {
+    width: min(88%, 980px);
+    min-height: 480px;
+    aspect-ratio: auto;
+    background-size: 134.5% 106.7%;
+  }
+
+  .work-contact-form__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .work-contact-form__field {
+    font-size: 14px;
+  }
+
+  .work-contact-form__field textarea {
+    min-height: 88px;
   }
 }
 
@@ -2102,8 +2531,15 @@ html.project-modal-open {
   .project-filters button,
   .project-card,
   .project-card-arrow,
-  .project-modal__arrow {
+  .project-modal__arrow,
+  .skill-file,
+  .skills-open-book {
     transition: none;
+  }
+
+  .skills-open-book,
+  .skills-open-book[aria-hidden="false"] {
+    transform: none;
   }
 
   .project-card:hover {
@@ -2158,5 +2594,18 @@ html.project-modal-open {
 
   .hero-carousel-slide {
     transition: none;
+  }
+
+  .skills-open-book {
+    transition: opacity 180ms ease, visibility 0s;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skills-open-book {
+    transition:
+      opacity 420ms ease,
+      transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      visibility 0s linear 420ms;
   }
 }

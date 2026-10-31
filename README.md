@@ -37,15 +37,62 @@ the portfolio without installing packages or configuring MySQL.
    CREATE DATABASE my_portfolio;
    ```
 
-3. Copy `.env.example` to `.env` in the project root, or copy
-   `Backend/.env.example` to `Backend/.env`. Set the MySQL username and
-   password in the copy. The backend checks the project root first, then the
-   `Backend` folder.
+3. Copy `.env.example` to `.env` in the project root and set the MySQL username
+   and password. The backend checks the project root first, then the `Backend`
+   folder.
 4. Configure MySQL and start the API with `npm run dev` (or `npm start`). The
    frontend is also served at <http://localhost:3000>.
 
 The backend health endpoint is available at `GET /api/health`. It returns a
 successful response only when the server can query MySQL.
+
+The contact postcard sends messages through Gmail SMTP on the backend. In your
+local `.env`, set `SMTP_USER` to the Gmail account that will send the messages,
+`SMTP_PASSWORD` to an App Password for that account, and `CONTACT_EMAIL` to the
+inbox that should receive them (the default is `remonte@gmail.com`). Create a
+Google App Password after enabling 2-Step Verification; do not put it in
+frontend files or commit it. The sample `.env.example` contains placeholders
+only. Start the backend with `npm run dev`
+and either use its frontend at <http://localhost:3000> or run `npm run frontend`
+at port 4173; the development frontend proxies contact submissions to the
+backend. Without valid Gmail SMTP settings, the form reports that sending
+failed instead of claiming success.
+
+## Deploy to Firebase Hosting
+
+The Firebase project `riyanna-portfolio` is configured to host the static
+portfolio and route `/api/contact` to a Node.js 22 Cloud Function. The existing
+MySQL-backed API is not deployed with Hosting.
+
+1. Install the Firebase CLI and sign in with an account that has access to
+   `riyanna-portfolio`:
+
+   ```powershell
+   npm install --global firebase-tools
+   firebase login
+   ```
+
+2. From the project root, configure the three Cloud Function secrets. Use a
+   Google App Password for `SMTP_PASSWORD`, not your normal Gmail password:
+
+   ```powershell
+   firebase functions:secrets:set SMTP_USER
+   firebase functions:secrets:set SMTP_PASSWORD
+   firebase functions:secrets:set CONTACT_EMAIL
+   ```
+
+   Enter the sending Gmail address for `SMTP_USER` and the receiving inbox
+   (default: `remonte@gmail.com`) for `CONTACT_EMAIL`.
+
+3. Deploy Hosting and the contact function:
+
+   ```powershell
+   firebase deploy --only hosting,functions
+   ```
+
+The live URL is printed by the CLI after deployment. Firebase Functions
+deployment may require the Blaze billing plan and the Cloud Functions, Cloud
+Build, and Artifact Registry APIs enabled in the Google Cloud project.
 
 The loading composition follows the Figma intro frame (1336 × 1000 px). Its
 illustration stage is 1440 × 450 px and intentionally extends past the frame's
@@ -64,7 +111,7 @@ before the homepage paper lifts and scales toward the center. Click or focus
 and activate the paper card to expand a pink reveal into the portfolio page.
 The profile, interests, and contact details are based on the provided portfolio
 design. The Canva exports supply the Strawcat brand mark, profile photo,
-interest illustrations, EaterList project preview, floral artwork, and pink
+interest illustrations, floral artwork, and pink
 background pattern. The supplied notebook illustration frames the About Me
 text, with a transparent background so its paper, paperclip, and tabs sit
 cleanly over the page. Leckerli One is bundled under its SIL Open Font License
@@ -98,13 +145,24 @@ with the supplied sketches, finished artwork, and BrewHaven design materials
 available in their activity galleries.
 Each activity from Prelims, Midterms, and Finals also links to its Google Drive
 folder from the activity modal.
-EaterList is categorized under Others rather than Prelims.
+EaterList remains in the journey timeline but is no longer listed as a featured
+project.
 The contact footer links to the portfolio owner's CCC email, Facebook,
 GitHub, and Instagram, alongside Psalm 73:26 and a back-to-top link.
+The “Let's Work Together” postcard validates a visitor's name, email, subject,
+and message, then sends it through the backend Gmail SMTP service. The visitor's
+email is set as the reply-to address so replies go directly back to them.
+On the static Firebase Hosting site, if the contact API is not deployed, the
+form opens a prefilled email draft to `remonte@gmail.com` instead; visitors must
+send that draft from their email app.
 The CV button downloads the supplied resume image directly. Project-category
 filters, search, the view-all reset, and the day/night theme switch are
-interactive, and the skills section reflects the interests described in the
-portfolio. Project details can be added before enabling project links.
+interactive, and the skills section displays the three reference titles on
+clickable closed file folders. Opening a folder reveals its matching
+background-removed portfolio spread at a larger size over the soft pink skills
+background; click outside the cutout image or use the close button to return
+to the folders.
+Project details can be added before enabling project links.
 
 The "My Journey" heading uses the Amoresa Regular webfont from
 [FontDownloader](https://fontdownloader.net/amoresa-font/), which lists the

@@ -311,23 +311,6 @@ export function mountPortfolio(container) {
             </article>
             <article
               class="project-card"
-              data-project-category="others"
-              data-project-activity="EaterList Project"
-              data-project-section="Web Development"
-              data-project-date="A.Y. 2025"
-              data-project-description="Designed and developed EaterList, a dynamic restaurant discovery website featuring personalized search filters and database-driven functionality to enhance user experience."
-              data-project-gallery='[{"src":"/assets/images/canva/project-eatenlist-card.png","label":"Website Preview","alt":"EaterList restaurant discovery website preview"}]'
-            >
-              <img src="/assets/images/canva/project-eatenlist-card.png" alt="EaterList project website preview" />
-              <div class="project-card-copy">
-                <span class="project-tag">Others</span>
-                <h3>EaterList</h3>
-                <p>Restaurant discovery with personalized filters and database-driven search.</p>
-                <button class="project-card-arrow" type="button" aria-label="View EaterList project details">→</button>
-              </div>
-            </article>
-            <article
-              class="project-card"
               data-project-category="prelims"
               data-project-activity="Activity 1"
               data-project-section="3-IT11"
@@ -392,26 +375,60 @@ export function mountPortfolio(container) {
           </dialog>
         </section>
 
-        <section class="skills-section patterned-section" id="skills" aria-labelledby="technical-skills-title">
-          <h2 id="technical-skills-title">Technical Skills</h2>
-          <div class="skills-grid" data-scroll-reveal>
-            <article class="skill-card">
-              <h3>Web Development</h3>
-              <p>Exploring ways to build useful digital experiences.</p>
-            </article>
-            <article class="skill-card">
-              <h3>UI/UX Design</h3>
-              <p>Interested in thoughtful, user-friendly interfaces.</p>
-            </article>
-            <article class="skill-card">
-              <h3>Digital Illustration</h3>
-              <p>Bringing visual ideas to life through creative design.</p>
-            </article>
+        <section class="skills-section" id="skills" aria-labelledby="technical-skills-title">
+          <h2 id="technical-skills-title"><span>Technical Skills</span></h2>
+          <div class="skills-file-stage" data-scroll-reveal>
+            <button class="skill-file skill-file--development" type="button" data-skill-image="/assets/images/skills/development-skills-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+              <h3>Development Skills</h3>
+            </button>
+            <button class="skill-file skill-file--design" type="button" data-skill-image="/assets/images/skills/design-creativity-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+              <h3>Design &amp; Creativity</h3>
+            </button>
+            <button class="skill-file skill-file--professional" type="button" data-skill-image="/assets/images/skills/professional-interpersonal-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+              <h3>Professional &amp; Interpersonal Skills</h3>
+            </button>
+          </div>
+          <div class="skills-open-book" id="skills-open-book" role="dialog" aria-modal="true" aria-label="Portfolio spread" aria-hidden="true" tabindex="-1">
+            <button class="skills-book-close" type="button" aria-label="Close portfolio">×</button>
+            <img class="skills-open-book__image" data-open-skill-image alt="" />
           </div>
         </section>
       </main>
 
-      <footer class="portfolio-contact" id="contact" data-scroll-reveal>
+      <section class="work-together" id="contact" aria-labelledby="work-together-title">
+        <div class="work-together__inner">
+          <h2 id="work-together-title">Let’s Work Together!</h2>
+          <div class="work-postcard">
+            <form class="work-contact-form" data-contact-form>
+              <div class="work-contact-form__fields">
+                <label class="work-contact-form__field">
+                  <span>Your Name</span>
+                  <input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Your name" required />
+                </label>
+                <label class="work-contact-form__field">
+                  <span>Email</span>
+                  <input name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com" required />
+                </label>
+                <label class="work-contact-form__field work-contact-form__field--full">
+                  <span>Subject</span>
+                  <input name="subject" type="text" maxlength="150" placeholder="Feedback, collaboration, or just say hello" required />
+                </label>
+                <label class="work-contact-form__field work-contact-form__field--full">
+                  <span>Message</span>
+                  <textarea name="message" rows="5" maxlength="5000" placeholder="Let me know your thoughts..." required></textarea>
+                </label>
+              </div>
+              <button class="work-contact-form__submit" type="submit">Send me a message</button>
+              <p class="work-contact-form__status" data-contact-status role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <div class="work-together__decorations" aria-hidden="true">
+            <img class="work-together__flowers" src="/assets/images/contact/contact-flowers.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <footer class="portfolio-contact" id="footer" data-scroll-reveal>
         <div class="portfolio-contact__inner">
           <section class="portfolio-contact__links" aria-labelledby="contact-title">
             <h2 id="contact-title">Contact Me:</h2>
@@ -484,6 +501,13 @@ export function mountPortfolio(container) {
   const projectModalStatus = container.querySelector("[data-project-modal-status]");
   const navLinks = [...container.querySelectorAll(".portfolio-nav a")];
   const revealTargets = [...container.querySelectorAll("[data-scroll-reveal]")];
+  const skillsFileStage = container.querySelector(".skills-file-stage");
+  const skillFiles = [...container.querySelectorAll(".skill-file")];
+  const skillsOpenBook = container.querySelector(".skills-open-book");
+  const skillsBookImage = container.querySelector("[data-open-skill-image]");
+  const skillsBookClose = container.querySelector(".skills-book-close");
+  const contactForm = container.querySelector("[data-contact-form]");
+  const contactStatus = container.querySelector("[data-contact-status]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (
@@ -520,6 +544,191 @@ export function mountPortfolio(container) {
   if (!(carousel instanceof HTMLElement) || carouselSlides.length < 2) {
     throw new Error("The portfolio photo carousel could not be initialized.");
   }
+
+  if (!(contactForm instanceof HTMLFormElement) || !(contactStatus instanceof HTMLElement)) {
+    throw new Error("The contact form could not be initialized.");
+  }
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) {
+      return;
+    }
+
+    const formData = new FormData(contactForm);
+    const submitButton = contactForm.querySelector(".work-contact-form__submit");
+    if (!(submitButton instanceof HTMLButtonElement)) {
+      throw new Error("The contact form submit button could not be initialized.");
+    }
+
+    submitButton.disabled = true;
+    contactStatus.textContent = "Sending your message…";
+
+    const contactDetails = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      subject: String(formData.get("subject") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+    };
+
+    function openEmailDraft() {
+      const body = `Name: ${contactDetails.name}\nEmail: ${contactDetails.email}\n\n${contactDetails.message}`;
+      const mailto = `mailto:remonte@gmail.com?subject=${encodeURIComponent(contactDetails.subject)}&body=${encodeURIComponent(body)}`;
+      contactStatus.textContent = "The hosted email service is unavailable. Your email app is opening with the message ready to send.";
+      window.location.href = mailto;
+      contactForm.reset();
+    }
+
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contactDetails),
+    })
+      .then(async (response) => {
+        if (response.status === 404 || response.status === 503) {
+          openEmailDraft();
+          return null;
+        }
+
+        let result;
+        try {
+          result = await response.json();
+        } catch {
+          throw new Error("The contact service returned an invalid response.");
+        }
+        if (!response.ok) {
+          throw new Error(result.error || "Your message could not be sent. Please try again later.");
+        }
+        return result;
+      })
+      .then((result) => {
+        if (!result) {
+          return;
+        }
+        contactStatus.textContent = result.message;
+        contactForm.reset();
+      })
+      .catch((error) => {
+        if (error instanceof TypeError) {
+          openEmailDraft();
+          return;
+        }
+        contactStatus.textContent = error instanceof Error
+          ? error.message
+          : "Your message could not be sent. Please try again later.";
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+      });
+  });
+
+  if (
+    !(skillsFileStage instanceof HTMLElement) ||
+    skillFiles.length !== 3 ||
+    skillFiles.some((file) => !(file instanceof HTMLButtonElement)) ||
+    !(skillsOpenBook instanceof HTMLElement) ||
+    !(skillsBookImage instanceof HTMLImageElement) ||
+    !(skillsBookClose instanceof HTMLButtonElement)
+  ) {
+    throw new Error("The skills portfolio could not be initialized.");
+  }
+
+  let activeSkillFile;
+  const skillsImageMasks = new Map();
+
+  skillFiles.forEach((file) => {
+    const imageSource = file.dataset.skillImage;
+    if (!imageSource) {
+      throw new Error("A skills file portfolio image could not be found.");
+    }
+
+    const image = new Image();
+    image.addEventListener("load", () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+      if (!context) {
+        throw new Error("The portfolio image transparency could not be checked.");
+      }
+
+      context.drawImage(image, 0, 0);
+      skillsImageMasks.set(imageSource, { canvas, context });
+    });
+    image.addEventListener("error", () => {
+      console.error(`The skills portfolio image failed to load: ${imageSource}`);
+    });
+    image.src = imageSource;
+  });
+
+  function isOutsidePortfolioImage(event) {
+    if (event.target !== skillsBookImage || !activeSkillFile) {
+      return false;
+    }
+
+    const imageSource = activeSkillFile.dataset.skillImage;
+    const mask = imageSource ? skillsImageMasks.get(imageSource) : undefined;
+    if (!mask || !skillsBookImage.clientWidth || !skillsBookImage.clientHeight) {
+      return false;
+    }
+
+    const imageX = Math.floor((event.offsetX / skillsBookImage.clientWidth) * mask.canvas.width);
+    const imageY = Math.floor((event.offsetY / skillsBookImage.clientHeight) * mask.canvas.height);
+
+    if (imageX < 0 || imageY < 0 || imageX >= mask.canvas.width || imageY >= mask.canvas.height) {
+      return true;
+    }
+
+    return mask.context.getImageData(imageX, imageY, 1, 1).data[3] < 32;
+  }
+
+  function closeSkillsBook() {
+    if (!activeSkillFile) {
+      return;
+    }
+
+    skillsFileStage.classList.remove("is-open");
+    skillsOpenBook.setAttribute("aria-hidden", "true");
+    skillFiles.forEach((file) => file.setAttribute("aria-expanded", "false"));
+    const previousFile = activeSkillFile;
+    activeSkillFile = undefined;
+    previousFile.focus({ preventScroll: true });
+  }
+
+  skillFiles.forEach((file) => {
+    file.addEventListener("click", () => {
+      const title = file.querySelector("h3");
+      const imageSource = file.dataset.skillImage;
+      if (!(title instanceof HTMLElement) || !imageSource) {
+        throw new Error("A skills file title or portfolio image could not be found.");
+      }
+
+      activeSkillFile = file;
+      skillsBookImage.src = imageSource;
+      skillsBookImage.alt = `${title.textContent.trim()} portfolio spread`;
+      skillsOpenBook.setAttribute("aria-label", `${title.textContent.trim()} portfolio spread`);
+      skillFiles.forEach((skillFile) => skillFile.setAttribute("aria-expanded", String(skillFile === file)));
+      skillsOpenBook.setAttribute("aria-hidden", "false");
+      skillsFileStage.classList.add("is-open");
+      skillsBookClose.focus({ preventScroll: true });
+    });
+  });
+
+  skillsBookClose.addEventListener("click", closeSkillsBook);
+  skillsOpenBook.addEventListener("click", (event) => {
+    if (event.target === skillsOpenBook || isOutsidePortfolioImage(event)) {
+      closeSkillsBook();
+    }
+  });
+  skillsOpenBook.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeSkillsBook();
+    } else if (event.key === "Tab") {
+      event.preventDefault();
+      skillsBookClose.focus({ preventScroll: true });
+    }
+  });
 
   let activeCarouselIndex = 0;
   let carouselTimer;
