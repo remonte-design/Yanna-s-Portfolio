@@ -422,6 +422,15 @@ export function mountPortfolio(container) {
               <p class="work-contact-form__status" data-contact-status role="status" aria-live="polite"></p>
             </form>
           </div>
+          <dialog class="contact-success-modal" data-contact-success-modal aria-labelledby="contact-success-title" aria-describedby="contact-success-description">
+            <div class="contact-success-modal__content">
+              <button class="contact-success-modal__close" type="button" data-contact-success-close aria-label="Close confirmation">×</button>
+              <p class="contact-success-modal__eyebrow">MESSAGE SENT</p>
+              <h2 id="contact-success-title">Thank you for reaching out!</h2>
+              <p id="contact-success-description">Your note is on its way. I’ll be in touch as soon as I can.</p>
+              <button class="contact-success-modal__action" type="button" data-contact-success-close>Back to portfolio</button>
+            </div>
+          </dialog>
           <div class="work-together__decorations" aria-hidden="true">
             <img class="work-together__flowers" src="/assets/images/contact/contact-flowers.png" alt="" />
           </div>
@@ -508,6 +517,8 @@ export function mountPortfolio(container) {
   const skillsBookClose = container.querySelector(".skills-book-close");
   const contactForm = container.querySelector("[data-contact-form]");
   const contactStatus = container.querySelector("[data-contact-status]");
+  const contactSuccessModal = container.querySelector("[data-contact-success-modal]");
+  const contactSuccessCloseButtons = [...container.querySelectorAll("[data-contact-success-close]")];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   if (
@@ -545,9 +556,24 @@ export function mountPortfolio(container) {
     throw new Error("The portfolio photo carousel could not be initialized.");
   }
 
-  if (!(contactForm instanceof HTMLFormElement) || !(contactStatus instanceof HTMLElement)) {
+  if (
+    !(contactForm instanceof HTMLFormElement) ||
+    !(contactStatus instanceof HTMLElement) ||
+    !(contactSuccessModal instanceof HTMLDialogElement) ||
+    contactSuccessCloseButtons.length !== 2 ||
+    contactSuccessCloseButtons.some((button) => !(button instanceof HTMLButtonElement))
+  ) {
     throw new Error("The contact form could not be initialized.");
   }
+
+  contactSuccessCloseButtons.forEach((button) => {
+    button.addEventListener("click", () => contactSuccessModal.close());
+  });
+  contactSuccessModal.addEventListener("click", (event) => {
+    if (event.target === contactSuccessModal) {
+      contactSuccessModal.close();
+    }
+  });
 
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -564,58 +590,41 @@ export function mountPortfolio(container) {
     submitButton.disabled = true;
     contactStatus.textContent = "Sending your message…";
 
-    const contactDetails = {
-      name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      subject: String(formData.get("subject") || "").trim(),
-      message: String(formData.get("message") || "").trim(),
-    };
+    const subject = String(formData.get("subject") || "").trim();
+    formData.set("_subject", `Portfolio contact: ${subject}`);
 
-    function openEmailDraft() {
-      const body = `Name: ${contactDetails.name}\nEmail: ${contactDetails.email}\n\n${contactDetails.message}`;
-      const mailto = `mailto:remonte@gmail.com?subject=${encodeURIComponent(contactDetails.subject)}&body=${encodeURIComponent(body)}`;
-      contactStatus.textContent = "The hosted email service is unavailable. Your email app is opening with the message ready to send.";
-      window.location.href = mailto;
-      contactForm.reset();
-    }
-
-    fetch("/api/contact", {
+    fetch("https://formspree.io/f/maeedard", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(contactDetails),
+      headers: {
+        Accept: "application/json",
+      },
+      body: formData,
     })
       .then(async (response) => {
-        if (response.status === 404 || response.status === 503) {
-          openEmailDraft();
-          return null;
-        }
-
         let result;
         try {
           result = await response.json();
         } catch {
-          throw new Error("The contact service returned an invalid response.");
+          throw new Error("The contact service returned an unexpected response. Please try again.");
         }
-        if (!response.ok) {
-          throw new Error(result.error || "Your message could not be sent. Please try again later.");
+
+        if (!response.ok || result.ok !== true) {
+          const errorMessage = Array.isArray(result.errors)
+            ? result.errors.map((error) => error.message).filter(Boolean).join(" ")
+            : "";
+          throw new Error(errorMessage || result.error || "Your message could not be sent. Please try again.");
         }
-        return result;
       })
-      .then((result) => {
-        if (!result) {
-          return;
-        }
-        contactStatus.textContent = result.message;
+      .then(() => {
+        contactStatus.textContent = "";
         contactForm.reset();
+        contactSuccessModal.showModal();
       })
       .catch((error) => {
-        if (error instanceof TypeError) {
-          openEmailDraft();
-          return;
-        }
+        console.error("Contact message could not be sent through Formspree:", error);
         contactStatus.textContent = error instanceof Error
           ? error.message
-          : "Your message could not be sent. Please try again later.";
+          : "Your message could not be sent. Please try again.";
       })
       .finally(() => {
         submitButton.disabled = false;

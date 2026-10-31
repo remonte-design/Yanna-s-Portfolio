@@ -46,23 +46,19 @@ the portfolio without installing packages or configuring MySQL.
 The backend health endpoint is available at `GET /api/health`. It returns a
 successful response only when the server can query MySQL.
 
-The contact postcard sends messages through Gmail SMTP on the backend. In your
-local `.env`, set `SMTP_USER` to the Gmail account that will send the messages,
-`SMTP_PASSWORD` to an App Password for that account, and `CONTACT_EMAIL` to the
-inbox that should receive them (the default is `remonte@gmail.com`). Create a
-Google App Password after enabling 2-Step Verification; do not put it in
-frontend files or commit it. The sample `.env.example` contains placeholders
-only. Start the backend with `npm run dev`
-and either use its frontend at <http://localhost:3000> or run `npm run frontend`
-at port 4173; the development frontend proxies contact submissions to the
-backend. Without valid Gmail SMTP settings, the form reports that sending
-failed instead of claiming success.
+The contact postcard sends messages through Formspree using the configured
+form endpoint. The visitor's name, email, subject, and message are submitted
+directly to Formspree; a confirmation modal appears only after a successful
+response. If the submission fails, an error is shown on the form so the visitor
+can retry.
+
+Formspree processes contact form data as a third-party service. Review its
+[privacy policy](https://formspree.io/legal/privacy-policy/) before using it.
 
 ## Deploy to Firebase Hosting
 
 The Firebase project `riyanna-portfolio` is configured to host the static
-portfolio and route `/api/contact` to a Node.js 22 Cloud Function. The existing
-MySQL-backed API is not deployed with Hosting.
+portfolio. The existing MySQL-backed API is not deployed with Hosting.
 
 1. Install the Firebase CLI and sign in with an account that has access to
    `riyanna-portfolio`:
@@ -72,27 +68,14 @@ MySQL-backed API is not deployed with Hosting.
    firebase login
    ```
 
-2. From the project root, configure the three Cloud Function secrets. Use a
-   Google App Password for `SMTP_PASSWORD`, not your normal Gmail password:
+2. Deploy the static site:
 
    ```powershell
-   firebase functions:secrets:set SMTP_USER
-   firebase functions:secrets:set SMTP_PASSWORD
-   firebase functions:secrets:set CONTACT_EMAIL
-   ```
-
-   Enter the sending Gmail address for `SMTP_USER` and the receiving inbox
-   (default: `remonte@gmail.com`) for `CONTACT_EMAIL`.
-
-3. Deploy Hosting and the contact function:
-
-   ```powershell
-   firebase deploy --only hosting,functions
+   firebase deploy --only hosting
    ```
 
 The live URL is printed by the CLI after deployment. Firebase Functions
-deployment may require the Blaze billing plan and the Cloud Functions, Cloud
-Build, and Artifact Registry APIs enabled in the Google Cloud project.
+are not required for the contact form.
 
 The loading composition follows the Figma intro frame (1336 × 1000 px). Its
 illustration stage is 1440 × 450 px and intentionally extends past the frame's
@@ -150,11 +133,12 @@ project.
 The contact footer links to the portfolio owner's CCC email, Facebook,
 GitHub, and Instagram, alongside Psalm 73:26 and a back-to-top link.
 The “Let's Work Together” postcard validates a visitor's name, email, subject,
-and message, then sends it through the backend Gmail SMTP service. The visitor's
-email is set as the reply-to address so replies go directly back to them.
-On the static Firebase Hosting site, if the contact API is not deployed, the
-form opens a prefilled email draft to `remonte@gmail.com` instead; visitors must
-send that draft from their email app.
+and message, then sends it through the configured Formspree endpoint. A
+confirmation modal appears only after a successful response; submission errors
+remain visible on the form so the visitor can retry.
+
+Formspree processes contact form data as a third-party service. Review its
+[privacy policy](https://formspree.io/legal/privacy-policy/) before using it.
 The CV button downloads the supplied resume image directly. Project-category
 filters, search, the view-all reset, and the day/night theme switch are
 interactive, and the skills section displays the three reference titles on

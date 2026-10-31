@@ -1,18 +1,4 @@
 {
-  "functions": [
-    {
-      "source": "functions",
-      "codebase": "default",
-      "runtime": "nodejs22",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ]
-    }
-  ],
   "hosting": {
     "public": "Frontend",
     "ignore": [
@@ -39,15 +25,6 @@
             "value": "no-cache"
           }
         ]
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/api/contact",
-        "function": {
-          "functionId": "contact",
-          "region": "us-central1"
-        }
       }
     ]
   }

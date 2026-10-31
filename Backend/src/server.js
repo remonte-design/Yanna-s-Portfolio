@@ -1,10 +1,8 @@
 const { settings } = require("./config/env");
 const { pool } = require("./config/database");
 const { createApp } = require("./app");
-const { createEmailService } = require("./services/email");
 
-const sendContactEmail = createEmailService(settings.email);
-const app = createApp({ pool, sendContactEmail });
+const app = createApp({ pool });
 const server = app.listen(settings.port, () => {
   console.log(`Server running at http://localhost:${settings.port}`);
 });

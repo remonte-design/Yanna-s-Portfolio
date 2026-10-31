@@ -27,7 +27,6 @@ if (missingEnvironmentVariables.length > 0) {
 
 const port = Number(process.env.PORT || 3000);
 const mysqlPort = Number(process.env.MYSQL_PORT || 3306);
-const smtpPort = Number(process.env.SMTP_PORT || 465);
 
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   throw new Error("PORT must be a valid TCP port.");
@@ -35,10 +34,6 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 
 if (!Number.isInteger(mysqlPort) || mysqlPort < 1 || mysqlPort > 65535) {
   throw new Error("MYSQL_PORT must be a valid TCP port.");
-}
-
-if (!Number.isInteger(smtpPort) || smtpPort < 1 || smtpPort > 65535) {
-  throw new Error("SMTP_PORT must be a valid TCP port.");
 }
 
 const settings = {
@@ -49,13 +44,6 @@ const settings = {
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD || "",
     database: process.env.MYSQL_DATABASE,
-  },
-  email: {
-    host: process.env.SMTP_HOST || "smtp.gmail.com",
-    port: smtpPort,
-    user: process.env.SMTP_USER || "",
-    password: process.env.SMTP_PASSWORD || "",
-    recipient: process.env.CONTACT_EMAIL || "remonte@gmail.com",
   },
 };
 
