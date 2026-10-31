@@ -1,5 +1,5 @@
 import { mountLoadingScreen } from "../../components/loadingScreen.js";
-import { mountPortfolio } from "../../components/portfolio.js";
+import { mountPortfolio } from "../../components/portfolio.js?v=social-links-inline-20261031";
 
 mountLoadingScreen();
 

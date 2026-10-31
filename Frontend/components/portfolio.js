@@ -3,9 +3,9 @@ export function mountPortfolio(container) {
     <div class="portfolio-site">
       <header class="portfolio-header">
         <a class="portfolio-brand" href="#home" aria-label="Yanna home">
-          <img src="/assets/images/canva/brand-strawcat.png" alt="" />
+          <img src="/assets/images/canva/brand-strawcat.png?v=logo-transparent-20261031" alt="" />
         </a>
-        <nav class="portfolio-nav" aria-label="Main navigation">
+        <nav class="portfolio-nav" id="portfolio-navigation" aria-label="Main navigation">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#experiences">Experiences</a>
@@ -13,6 +13,17 @@ export function mountPortfolio(container) {
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </nav>
+        <button
+          class="portfolio-menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="portfolio-navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <button class="portfolio-theme" type="button" aria-label="Switch to night theme" aria-pressed="false">
           <span class="theme-label">DAY</span>
           <span class="theme-icon" aria-hidden="true">☼</span>
@@ -453,7 +464,7 @@ export function mountPortfolio(container) {
                 </svg>
                 <span>remonte@ccc.edu.ph</span>
               </a>
-              <a class="portfolio-contact__link" href="https://www.instagram.com/imriyanna_/" target="_blank" rel="noopener noreferrer">
+              <a class="portfolio-contact__link portfolio-contact__link--social portfolio-contact__link--instagram" href="https://www.instagram.com/imriyanna_/" target="_blank" rel="noopener noreferrer">
                 <span class="portfolio-contact__icon portfolio-contact__icon--instagram" aria-hidden="true">
                   <svg viewBox="0 0 32 32">
                     <rect x="3" y="3" width="26" height="26" rx="7" />
@@ -463,7 +474,7 @@ export function mountPortfolio(container) {
                 </span>
                 <span>imriyanna_</span>
               </a>
-              <a class="portfolio-contact__link" href="https://github.com/remonte-design" target="_blank" rel="noopener noreferrer">
+              <a class="portfolio-contact__link portfolio-contact__link--social portfolio-contact__link--github" href="https://github.com/remonte-design" target="_blank" rel="noopener noreferrer">
                 <span class="portfolio-contact__icon portfolio-contact__icon--github" aria-hidden="true">
                   <svg viewBox="0 0 24 24">
                     <path d="M12 .9a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.54v-2.1c-3.1.68-3.76-1.32-3.76-1.32-.5-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.17 1.72 1.17 1 .1.76 2.45 3.35 1.76.1-.73.4-1.22.72-1.5-2.48-.28-5.1-1.25-5.1-5.55 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.1-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.13-1.45 3.08-1.15 3.08-1.15.6 1.55.22 2.7.1 2.98.72.8 1.16 1.8 1.16 3.02 0 4.31-2.63 5.27-5.12 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .9z" />
@@ -484,6 +495,8 @@ export function mountPortfolio(container) {
   `;
 
   const themeToggle = container.querySelector(".portfolio-theme");
+  const mobileMenuToggle = container.querySelector(".portfolio-menu-toggle");
+  const portfolioNav = container.querySelector(".portfolio-nav");
   const themeLabel = container.querySelector(".theme-label");
   const themeIcon = container.querySelector(".theme-icon");
   const carousel = container.querySelector(".hero-carousel");
@@ -524,9 +537,11 @@ export function mountPortfolio(container) {
   if (
     !(themeToggle instanceof HTMLButtonElement) ||
     !(themeLabel instanceof HTMLElement) ||
-    !(themeIcon instanceof HTMLElement)
+    !(themeIcon instanceof HTMLElement) ||
+    !(mobileMenuToggle instanceof HTMLButtonElement) ||
+    !(portfolioNav instanceof HTMLElement)
   ) {
-    throw new Error("The portfolio theme control could not be found.");
+    throw new Error("The portfolio header controls could not be initialized.");
   }
 
   if (
@@ -818,6 +833,51 @@ export function mountPortfolio(container) {
   container.addEventListener("portfolio:visible", () => {
     if (!carouselTimer) {
       carouselTimer = window.setInterval(showNextPhoto, 6000);
+    }
+  });
+
+  const mobileNavigation = window.matchMedia("(max-width: 760px)");
+
+  function setMobileNavigationOpen(isOpen) {
+    const shouldOpen = isOpen && mobileNavigation.matches;
+    portfolioNav.classList.toggle("is-open", shouldOpen);
+    mobileMenuToggle.setAttribute("aria-expanded", String(shouldOpen));
+    mobileMenuToggle.setAttribute(
+      "aria-label",
+      shouldOpen ? "Close navigation" : "Open navigation",
+    );
+  }
+
+  mobileMenuToggle.addEventListener("click", () => {
+    setMobileNavigationOpen(mobileMenuToggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => setMobileNavigationOpen(false));
+  });
+
+  container.addEventListener("click", (event) => {
+    if (
+      mobileNavigation.matches &&
+      mobileMenuToggle.getAttribute("aria-expanded") === "true" &&
+      event.target instanceof Node &&
+      !portfolioNav.contains(event.target) &&
+      !mobileMenuToggle.contains(event.target)
+    ) {
+      setMobileNavigationOpen(false);
+    }
+  });
+
+  container.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && mobileMenuToggle.getAttribute("aria-expanded") === "true") {
+      setMobileNavigationOpen(false);
+      mobileMenuToggle.focus();
+    }
+  });
+
+  mobileNavigation.addEventListener("change", (event) => {
+    if (!event.matches) {
+      setMobileNavigationOpen(false);
     }
   });
 

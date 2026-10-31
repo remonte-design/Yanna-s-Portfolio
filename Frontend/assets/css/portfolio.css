@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 92px;
+  scroll-padding-top: 84px;
 }
 
 html.project-modal-open {
@@ -184,11 +184,6 @@ html.project-modal-open {
   box-shadow: 0 4px 12px rgb(73 44 59 / 18%);
 }
 
-.portfolio-site section[id],
-.portfolio-site footer[id] {
-  scroll-margin-top: 92px;
-}
-
 .portfolio-site [data-scroll-reveal] {
   opacity: 0;
   transform: translateY(28px) scale(0.985);
@@ -212,6 +207,27 @@ html.project-modal-open {
 .portfolio-theme .theme-icon {
   font-size: 20px;
   line-height: 1;
+}
+
+.portfolio-menu-toggle {
+  display: none;
+}
+
+.portfolio-menu-toggle span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--portfolio-ink);
+  transition:
+    background-color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.portfolio-menu-toggle:focus-visible {
+  outline: 3px solid #bd6f78;
+  outline-offset: 3px;
 }
 
 .patterned-section {
@@ -268,6 +284,10 @@ html.project-modal-open {
   white-space: nowrap;
 }
 
+.hero-copy h1:focus {
+  outline: none;
+}
+
 .hero-copy h1 img {
   display: block;
   width: auto;
@@ -312,7 +332,7 @@ html.project-modal-open {
   position: absolute;
   z-index: 2;
   top: 47.5%;
-  right: 5.5%;
+  right: 3.5%;
   width: clamp(380px, 38vw, 500px);
   height: clamp(450px, 46vw, 560px);
   transform: translateY(-50%);
@@ -1124,6 +1144,18 @@ html.project-modal-open {
   text-transform: uppercase;
 }
 
+.project-card[data-project-category="midterms"] .project-tag {
+  border-color: #bd7d91;
+  background: #f6d2d3;
+  color: #48451f;
+}
+
+.project-card[data-project-category="finals"] .project-tag {
+  border-color: #8199b1;
+  background: #b6c9dc;
+  color: #263547;
+}
+
 .project-card h3 {
   margin: 4px 0 2px;
   color: #f86f9b;
@@ -1674,7 +1706,7 @@ html.project-modal-open {
   width: min(84%, 980px);
   aspect-ratio: 1.41;
   margin: 0 auto;
-  background: #fff url("/assets/images/contact/postcard-frame.png") center / 100% 100% no-repeat;
+  background: #fff url("/assets/images/contact/postcard-frame-light-20261031.png") center / 100% 100% no-repeat;
 }
 
 .work-together__decorations {
@@ -1926,6 +1958,16 @@ html.project-modal-open {
   margin-top: 8px;
 }
 
+@media (min-width: 761px) {
+  .portfolio-contact__link--instagram {
+    grid-column: 1;
+  }
+
+  .portfolio-contact__link--github {
+    grid-column: 2;
+  }
+}
+
 .portfolio-contact__link {
   display: flex;
   min-width: 0;
@@ -2031,10 +2073,16 @@ html.project-modal-open {
 }
 
 @media (max-width: 760px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
   .portfolio-header {
+    position: sticky;
     min-height: 72px;
-    gap: 12px;
-    padding: 8px 16px;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 8px 14px;
   }
 
   .portfolio-brand {
@@ -2042,26 +2090,80 @@ html.project-modal-open {
     height: 48px;
   }
 
-  .portfolio-nav {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 18px;
-    overflow-x: auto;
-    scrollbar-width: none;
+  .portfolio-theme {
+    order: 2;
   }
 
-  .portfolio-nav::-webkit-scrollbar {
-    display: none;
+  .portfolio-menu-toggle {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    order: 1;
+    margin-left: auto;
+    align-content: center;
+    justify-items: center;
+    gap: 5px;
+    padding: 0;
+    border: 1px solid var(--portfolio-border);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--portfolio-ink);
+    cursor: pointer;
+  }
+
+  .portfolio-menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .portfolio-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .portfolio-menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .portfolio-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 16px 14px;
+    border-bottom: 2px solid var(--portfolio-border);
+    background: var(--portfolio-header);
+    box-shadow: 0 12px 24px rgb(73 44 59 / 15%);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s linear 180ms;
+    visibility: hidden;
+  }
+
+  .portfolio-nav.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+    visibility: visible;
   }
 
   .portfolio-nav a {
-    flex: 0 0 auto;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgb(142 150 109 / 22%);
     font-size: 18px;
+    text-align: center;
   }
 
-  .portfolio-theme {
-    flex: 0 0 auto;
-    padding: 7px 11px;
+  .portfolio-nav a:last-child {
+    border-bottom: 0;
   }
 
   .portfolio-hero {
@@ -2072,14 +2174,17 @@ html.project-modal-open {
 
   .hero-copy {
     width: 100%;
+    text-align: center;
   }
 
   .hero-kicker {
+    margin-left: 0;
     font-size: clamp(14px, 4vw, 18px);
     letter-spacing: 0.3em;
   }
 
   .hero-copy h1 {
+    justify-content: center;
     font-size: clamp(44px, 10.6vw, 78px);
   }
 
@@ -2097,7 +2202,7 @@ html.project-modal-open {
   }
 
   .hero-carousel {
-    top: 65%;
+    top: 43%;
     right: 50%;
     width: min(86vw, 350px);
     height: min(92vw, 380px);
@@ -2107,6 +2212,14 @@ html.project-modal-open {
   .hero-carousel-slide {
     border-width: 7px;
     border-radius: 20px;
+  }
+
+  .hero-carousel-slide.is-previous {
+    transform: translate(calc(-50% - 58%), -50%) scale(0.49);
+  }
+
+  .hero-carousel-slide.is-next {
+    transform: translate(calc(-50% + 58%), -50%) scale(0.49);
   }
 
   .about-section {
@@ -2132,10 +2245,7 @@ html.project-modal-open {
   }
 
   .profile-arrow {
-    top: 100px;
-    left: calc(50% + 44px);
-    width: 86px;
-    transform: rotate(125deg);
+    display: none;
   }
 
   .profile-name {
@@ -2160,11 +2270,13 @@ html.project-modal-open {
 
   .about-note {
     min-height: 470px;
-    padding: 72px 38px 54px 46px;
+    padding: 98px 40px 52px;
   }
 
   .about-note p {
-    font-size: 17px;
+    margin: 18px 0 0;
+    font-size: 15px;
+    line-height: 1.45;
   }
 
   .interest-grid {
@@ -2193,10 +2305,7 @@ html.project-modal-open {
   }
 
   .journey-book-art {
-    position: static;
-    z-index: auto;
-    width: 100%;
-    height: auto;
+    display: none;
   }
 
   .journey-page {
@@ -2416,12 +2525,12 @@ html.project-modal-open {
 
   .work-contact-form__field input,
   .work-contact-form__field textarea {
-    font-size: clamp(11px, 2vw, 15px);
+    font-size: clamp(14px, 3.8vw, 16px);
   }
 
   .work-contact-form__field input {
-    min-height: 32px;
-    padding: 5px 7px;
+    min-height: 40px;
+    padding: 7px 9px;
   }
 
   .work-contact-form__field textarea {
@@ -2441,8 +2550,8 @@ html.project-modal-open {
   }
 
   .portfolio-contact__link-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 8px;
   }
 
   .portfolio-contact__verse {
@@ -2476,7 +2585,7 @@ html.project-modal-open {
     width: min(88%, 980px);
     min-height: 480px;
     aspect-ratio: auto;
-    background-size: 134.5% 106.7%;
+    background-size: 100% 100%;
   }
 
   .work-contact-form__fields {
@@ -2541,20 +2650,112 @@ html.project-modal-open {
   }
 }
 
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 700px) {
+  .portfolio-hero {
+    min-height: 680px;
+  }
+
+  .hero-carousel {
+    top: 78%;
+    width: min(48vw, 360px);
+    height: min(55vw, 330px);
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .journey-section {
+    padding: 56px 24px;
+  }
+
+  .journey-spread {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    aspect-ratio: auto;
+  }
+
+  .journey-book-art {
+    position: static;
+    z-index: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .journey-page {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 0;
+    padding: 24px;
+    border: 2px solid #48451f;
+    border-radius: 16px;
+    background: var(--portfolio-surface);
+    box-shadow: 0 6px 0 #f18e6d, 0 9px 0 #382c2a;
+  }
+
+  .journey-page h3 {
+    font-size: 30px;
+  }
+
+  .journey-timeline {
+    height: auto;
+    max-height: none;
+    flex: none;
+    overflow: visible;
+    padding-right: 12px;
+  }
+
+  .journey-event time {
+    font-size: 10px;
+  }
+
+  .journey-event h4 {
+    font-size: 18px;
+  }
+
+  .journey-event p {
+    font-size: 14px;
+  }
+
+  .journey-page .journey-organization {
+    font-size: 12px;
+  }
+
+  .skills-file-stage {
+    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding: 40px 12px;
+  }
+
+  .skill-file,
+  .skill-file--development,
+  .skill-file--design,
+  .skill-file--professional {
+    min-height: 210px;
+    transform: none;
+  }
+
+  .skill-file--professional {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, calc((100% - 24px) / 2));
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 400px) {
   .portfolio-header {
+    min-height: 64px;
     gap: 8px;
+    padding: 8px 10px;
   }
 
   .portfolio-nav {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 4px 8px;
-    overflow: visible;
-  }
-
-  .portfolio-nav a {
-    font-size: 16px;
+    gap: 0;
   }
 
   .profile-photo {
@@ -2569,7 +2770,7 @@ html.project-modal-open {
 
   .about-note {
     min-height: 480px;
-    padding: 68px 28px 50px 38px;
+    padding: 90px 32px 48px;
   }
 
   .profile-name p {
@@ -2674,6 +2875,7 @@ html.project-modal-open {
 
   .portfolio-nav {
     scroll-behavior: auto;
+    transition: none;
   }
 
   .hero-carousel-slide {
@@ -2814,6 +3016,18 @@ html.project-modal-open {
   border-color: #c4d0ad;
   background: #b7c49f;
   color: #292a22;
+}
+
+.portfolio-site[data-theme="night"] .project-card[data-project-category="midterms"] .project-tag {
+  border-color: #d78da5;
+  background: #d78da5;
+  color: #301b26;
+}
+
+.portfolio-site[data-theme="night"] .project-card[data-project-category="finals"] .project-tag {
+  border-color: #91a5b7;
+  background: #91a5b7;
+  color: #172534;
 }
 
 .portfolio-site[data-theme="night"] .project-filters button {

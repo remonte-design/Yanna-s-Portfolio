@@ -38,6 +38,10 @@
       filter: drop-shadow(0 0 4px #d4607a);
     }
 
+    .card-trigger:focus {
+      outline: none;
+    }
+
     @keyframes cat-journey {
       0% { transform: translate(0, 0); }
       12% { transform: translate(108px, 41px); }
