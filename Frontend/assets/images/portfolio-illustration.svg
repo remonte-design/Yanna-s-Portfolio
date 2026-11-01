@@ -120,9 +120,20 @@
     class="card card-trigger"
     role="button"
     tabindex="0"
-    aria-label="Open a world of possibilities"
+    aria-label="Click here to open the portfolio"
   >
     <image href="/assets/images/enhanced/portfolio-homepage-paper.webp" x="797" y="52.42" width="282" height="210"/>
+    <text
+      x="938"
+      y="163"
+      transform="rotate(-4.5 938 163)"
+      fill="#6B3040"
+      font-family="Georgia, serif"
+      font-size="18"
+      font-weight="600"
+      text-anchor="middle"
+      pointer-events="none"
+    >Click here</text>
   </g>
 
   <image href="/assets/images/enhanced/portfolio-folder-flap.webp" x="761" y="195" width="354" height="154"/>
