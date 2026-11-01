@@ -3,31 +3,31 @@
     .cat {
       transform-box: view-box;
       transform-origin: 0 0;
-      animation: cat-journey 10s cubic-bezier(0.35, 0, 0.2, 1) both;
+      animation: cat-journey 9s cubic-bezier(0.35, 0, 0.2, 1) both;
     }
 
     .cat-body-motion {
       transform-box: fill-box;
       transform-origin: 50% 100%;
-      animation: cat-bob 10s ease-in-out both;
+      animation: cat-bob 9s ease-in-out both;
     }
 
     .strawberry--one {
-      animation: strawberry-eaten 800ms 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation: strawberry-eaten 720ms 1.08s cubic-bezier(0.4, 0, 0.2, 1) both;
     }
 
     .strawberry--two {
-      animation: strawberry-eaten 800ms 3.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation: strawberry-eaten 720ms 2.88s cubic-bezier(0.4, 0, 0.2, 1) both;
     }
 
     .strawberry--three {
-      animation: strawberry-eaten 800ms 5.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+      animation: strawberry-eaten 720ms 4.68s cubic-bezier(0.4, 0, 0.2, 1) both;
     }
 
     .card {
       transform-box: view-box;
       transform-origin: 0 0;
-      animation: card-to-center 1.8s 8.3s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+      animation: card-to-center 1.62s 7.47s cubic-bezier(0.2, 0.75, 0.25, 1) both;
     }
 
     .card-trigger {
