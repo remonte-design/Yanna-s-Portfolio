@@ -49,14 +49,14 @@ export function mountPortfolio(container) {
           >
             <img
               class="hero-carousel-slide is-active"
-              src="/assets/images/carousel/memory-01-celebration.jpg"
-              alt="Yanna celebrating a school achievement with a friend"
+              src="/assets/images/carousel/memory-02-garden.jpg"
+              alt="Yanna relaxing in a garden"
               aria-hidden="false"
             />
             <img
               class="hero-carousel-slide"
-              src="/assets/images/carousel/memory-02-garden.jpg"
-              alt="Yanna relaxing in a garden"
+              src="/assets/images/carousel/memory-01-celebration.jpg"
+              alt="Yanna celebrating a school achievement with a friend"
               aria-hidden="true"
             />
             <img
@@ -153,8 +153,8 @@ export function mountPortfolio(container) {
           <div class="cv-action">
             <a
               class="cv-download"
-              href="/assets/cv/Riyanna-Monte-CV.png"
-              download="Riyanna-Monte-CV.png"
+              href="/assets/cv/Riyanna-Monte-CV.pdf"
+              download="Riyanna-Monte-CV.pdf"
             >
               Download CV
             </a>
@@ -266,6 +266,23 @@ export function mountPortfolio(container) {
             </label>
           </div>
           <div class="project-grid" data-scroll-reveal>
+            <article
+              class="project-card"
+              data-project-category="finals"
+              data-project-activity="Activity 6"
+              data-project-section="3-IT11"
+              data-project-date="November 1, 2026"
+              data-project-description="Designed and developed a personal portfolio website to introduce myself and present my education, experiences, and creative work in one place. I built a responsive interface with HTML, CSS, and JavaScript, then organized the content into clear sections visitors can explore through smooth navigation. Custom visuals, light and dark themes, an interactive photo carousel, and filterable project galleries help the site reflect my personality while keeping it easy to use across phones, tablets, and desktops. This project brought my design and front-end development skills together in a polished, accessible portfolio."
+              data-project-gallery='[{"src":"/assets/images/projects/personal-portfolio-home.png","label":"Portfolio Home Page","alt":"Desktop screenshot of the personal portfolio homepage with a welcome message, photo carousel, and profile section"},{"src":"/assets/images/projects/personal-portfolio-journey.png","label":"Education and Experience","alt":"Desktop screenshot of the portfolio journey section showing education and experience timelines in an illustrated open book"},{"src":"/assets/images/projects/personal-portfolio-projects.png","label":"Featured Projects","alt":"Desktop screenshot of the portfolio featured projects section displaying project category filters and a low-fidelity prototype card"},{"src":"/assets/images/projects/personal-portfolio-skills.png","label":"Technical Skills","alt":"Desktop screenshot of the portfolio technical skills section with development, design, and professional skills folders"},{"src":"/assets/images/projects/personal-portfolio-contact.png","label":"Contact Me","alt":"Desktop screenshot of the portfolio contact section featuring a message form inside a pink postage stamp frame"}]'
+            >
+              <img src="/assets/images/projects/personal-portfolio-home.png" alt="Personal portfolio homepage with welcome heading, photo carousel, and profile section" />
+              <div class="project-card-copy">
+                <span class="project-tag">Finals</span>
+                <h3>Personal Website Portfolio</h3>
+                <p>Designed and built a responsive portfolio showcasing my background, experiences, and creative work.</p>
+                <button class="project-card-arrow" type="button" aria-label="View Personal Website Portfolio activity details">→</button>
+              </div>
+            </article>
             <article
               class="project-card"
               data-project-category="finals"
