@@ -1,5 +1,5 @@
 import { mountLoadingScreen } from "../../components/loadingScreen.js";
-import { mountPortfolio } from "../../components/portfolio.js?v=cv-pdf-download-20261101";
+import { mountPortfolio } from "../../components/portfolio.js?v=image-quality-20261101";
 
 mountLoadingScreen();
 
@@ -72,7 +72,7 @@ screenTransition.addEventListener("animationend", (event) => {
     portfolioPage.hidden = false;
     portfolioPage.dispatchEvent(new Event("portfolio:visible"));
     document.documentElement.classList.add("portfolio-active");
-    document.title = "Riyanna Monte | Portfolio";
+    document.title = "Riyanna Jelaine E. Monte | Portfolio";
     loadingScreen.hidden = true;
     portfolioPage.querySelector("#portfolio-title")?.focus({ preventScroll: true });
     screenTransition.classList.remove("is-opening");

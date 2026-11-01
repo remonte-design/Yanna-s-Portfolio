@@ -47,7 +47,7 @@ html.project-modal-open {
   width: 100%;
   color: var(--portfolio-ink);
   background-color: #f7b9b5;
-  background-image: url("/assets/images/canva/pattern-background.png");
+  background-image: url("/assets/images/enhanced/canva/pattern-background.webp");
   background-position: center top;
   background-repeat: repeat-y;
   background-size: 100% auto;
@@ -234,14 +234,14 @@ html.project-modal-open {
   background-color: #f7b9b5;
   background-image:
     linear-gradient(transparent, transparent),
-    url("/assets/images/canva/pattern-background.png");
+    url("/assets/images/enhanced/canva/pattern-background.webp");
   background-position: center;
   background-size: cover;
 }
 
 .portfolio-site[data-theme="night"] .patterned-section {
   background-color: #08070a;
-  background-image: url("/assets/images/canva/pattern-background-night.png");
+  background-image: url("/assets/images/enhanced/canva/pattern-background-night.webp");
   background-position: center;
   background-size: cover;
 }
@@ -471,7 +471,7 @@ html.project-modal-open {
   min-height: 470px;
   padding: 78px clamp(36px, 4vw, 58px) 58px clamp(46px, 5vw, 70px);
   border: 0;
-  background: url("/assets/images/canva/about-note.png") center / 100% 100% no-repeat;
+  background: url("/assets/images/enhanced/canva/about-note.webp") center / 100% 100% no-repeat;
   box-shadow: none;
 }
 
@@ -606,7 +606,7 @@ html.project-modal-open {
   z-index: -1;
   inset: -72px 0 0;
   background-color: #f7b9b5;
-  background-image: url("/assets/images/canva/pattern-background.png");
+  background-image: url("/assets/images/enhanced/canva/pattern-background.webp");
   background-position: center;
   background-size: cover;
   content: "";
@@ -615,7 +615,7 @@ html.project-modal-open {
 
 .portfolio-site[data-theme="night"] .journey-section::before {
   background-color: #08070a;
-  background-image: url("/assets/images/canva/pattern-background-night.png");
+  background-image: url("/assets/images/enhanced/canva/pattern-background-night.webp");
   background-size: cover;
 }
 
@@ -941,14 +941,14 @@ html.project-modal-open {
   min-height: 510px;
   padding: clamp(32px, 4vw, 56px) clamp(14px, 3vw, 44px) 72px;
   background-color: var(--portfolio-card);
-  background-image: url("/assets/images/canva/featured-projects-background.png");
+  background-image: url("/assets/images/enhanced/canva/featured-projects-background.webp");
   background-position: center;
   background-size: cover;
 }
 
 .portfolio-site[data-theme="night"] .projects-section {
   background-color: #08070a;
-  background-image: url("/assets/images/canva/night-featured-skills-background.png");
+  background-image: url("/assets/images/enhanced/canva/night-featured-skills-background.webp");
   background-position: center 48%;
   background-size: cover;
 }
@@ -1471,7 +1471,7 @@ html.project-modal-open {
 .skills-section {
   padding: clamp(40px, 6vw, 72px) max(5vw, calc((100vw - 1200px) / 2)) 80px;
   background-color: #fffaf4;
-  background-image: url("/assets/images/skills/skills-background.png");
+  background-image: url("/assets/images/enhanced/skills/skills-background.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1604,7 +1604,7 @@ html.project-modal-open {
   place-items: center;
   padding: 0;
   background-color: #fffaf4;
-  background-image: url("/assets/images/skills/skills-background.png");
+  background-image: url("/assets/images/enhanced/skills/skills-background.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1679,7 +1679,7 @@ html.project-modal-open {
   min-height: 0;
   padding: clamp(245px, 18vw, 265px) 24px clamp(24px, 4vw, 48px);
   background-color: #fff8f1;
-  background-image: url("/assets/images/contact/scratch-paper-background.png");
+  background-image: url("/assets/images/enhanced/contact/scratch-paper-background.webp");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: auto 115%;
@@ -1706,7 +1706,7 @@ html.project-modal-open {
   width: min(84%, 980px);
   aspect-ratio: 1.41;
   margin: 0 auto;
-  background: #fff url("/assets/images/contact/postcard-frame-light-20261031.png") center / 100% 100% no-repeat;
+  background: #fff url("/assets/images/enhanced/contact/postcard-frame-light-20261031.webp") center / 100% 100% no-repeat;
 }
 
 .work-together__decorations {
@@ -1917,13 +1917,13 @@ html.project-modal-open {
 .portfolio-contact::before {
   top: -20px;
   left: -12px;
-  background-image: url("/assets/images/canva/hero-flower-attached.png");
+  background-image: url("/assets/images/enhanced/canva/hero-flower-attached.webp");
 }
 
 .portfolio-contact::after {
   right: -12px;
   bottom: -34px;
-  background-image: url("/assets/images/canva/hero-flower-branch.png");
+  background-image: url("/assets/images/enhanced/canva/hero-flower-branch.webp");
   transform: rotate(180deg);
 }
 
@@ -3063,7 +3063,7 @@ html.project-modal-open {
 
 .portfolio-site[data-theme="night"] .skills-section {
   background-color: #08070a;
-  background-image: url("/assets/images/canva/night-featured-skills-background.png");
+  background-image: url("/assets/images/enhanced/canva/night-featured-skills-background.webp");
   background-position: center 52%;
   background-size: cover;
 }
@@ -3099,7 +3099,7 @@ html.project-modal-open {
 
 .portfolio-site[data-theme="night"] .skills-open-book {
   background-color: #08070a;
-  background-image: url("/assets/images/canva/night-featured-skills-background.png");
+  background-image: url("/assets/images/enhanced/canva/night-featured-skills-background.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3117,7 +3117,7 @@ html.project-modal-open {
 
 .portfolio-site[data-theme="night"] .work-together {
   background-color: #100e12;
-  background-image: url("/assets/images/contact/contact-background-night.png");
+  background-image: url("/assets/images/enhanced/contact/contact-background-night.webp");
   background-position: center top;
   background-size: cover;
   color: #fff2f5;
@@ -3132,7 +3132,7 @@ html.project-modal-open {
 }
 
 .portfolio-site[data-theme="night"] .work-postcard {
-  background: #100e12 url("/assets/images/contact/postcard-frame-night.png") center / 100% 100% no-repeat;
+  background: #100e12 url("/assets/images/enhanced/contact/postcard-frame-night.webp") center / 100% 100% no-repeat;
 }
 
 .portfolio-site[data-theme="night"] .portfolio-contact {

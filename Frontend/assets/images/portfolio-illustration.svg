@@ -102,7 +102,7 @@
           </clipPath>
         </defs>
         <image
-          href="strawcat.png"
+          href="/assets/images/enhanced/strawcat.webp"
           x="-22.4"
           y="-37.3"
           width="248.84"
@@ -114,7 +114,7 @@
     </g>
   </g>
 
-  <image href="portfolio-folder-back.png" x="773" y="129" width="330" height="220"/>
+  <image href="/assets/images/enhanced/portfolio-folder-back.webp" x="773" y="129" width="330" height="220"/>
 
   <g
     class="card card-trigger"
@@ -122,27 +122,27 @@
     tabindex="0"
     aria-label="Open a world of possibilities"
   >
-    <image href="portfolio-homepage-paper.png" x="797" y="52.42" width="282" height="210"/>
+    <image href="/assets/images/enhanced/portfolio-homepage-paper.webp" x="797" y="52.42" width="282" height="210"/>
   </g>
 
-  <image href="portfolio-folder-flap.png" x="761" y="195" width="354" height="154"/>
-  <image href="portfolio-folder-label.png" x="853" y="257" width="195" height="40"/>
+  <image href="/assets/images/enhanced/portfolio-folder-flap.webp" x="761" y="195" width="354" height="154"/>
+  <image href="/assets/images/enhanced/portfolio-folder-label.webp" x="853" y="257" width="195" height="40"/>
 
   <g transform="translate(557 285.81) rotate(14 16 21.5)">
     <g class="strawberry strawberry--one">
-      <image href="strawberry.png" width="32" height="43"/>
+      <image href="/assets/images/enhanced/strawberry.webp" width="32" height="43"/>
     </g>
   </g>
 
   <g transform="translate(621.21 286) rotate(-12 16 21.5)">
     <g class="strawberry strawberry--two">
-      <image href="strawberry.png" width="32" height="43"/>
+      <image href="/assets/images/enhanced/strawberry.webp" width="32" height="43"/>
     </g>
   </g>
 
   <g transform="translate(717 246.21) rotate(12 16 21.5)">
     <g class="strawberry strawberry--three">
-      <image href="strawberry.png" width="32" height="43"/>
+      <image href="/assets/images/enhanced/strawberry.webp" width="32" height="43"/>
     </g>
   </g>
 </svg>

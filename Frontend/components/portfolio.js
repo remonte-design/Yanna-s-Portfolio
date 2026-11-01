@@ -3,7 +3,7 @@ export function mountPortfolio(container) {
     <div class="portfolio-site">
       <header class="portfolio-header">
         <a class="portfolio-brand" href="#home" aria-label="Yanna home">
-          <img src="/assets/images/canva/brand-strawcat.png?v=logo-transparent-20261031" alt="" />
+          <img src="/assets/images/enhanced/canva/brand-strawcat.webp?v=logo-transparent-20261031" alt="" />
         </a>
         <nav class="portfolio-nav" id="portfolio-navigation" aria-label="Main navigation">
           <a href="#home">Home</a>
@@ -35,12 +35,12 @@ export function mountPortfolio(container) {
           <div class="hero-copy" data-scroll-reveal>
             <p class="hero-kicker">Welcome to my</p>
             <h1 id="portfolio-title" aria-label="Portfolio" tabindex="-1">
-              <img src="/assets/images/canva/portfolio-initial-clean.png" alt="" />
+              <img src="/assets/images/enhanced/canva/portfolio-initial-clean.webp" alt="" />
               <span>ortfolio</span>
             </h1>
           </div>
-          <img class="hero-flower hero-flower--left" src="/assets/images/canva/hero-flower-attached.png" alt="" />
-          <img class="hero-flower hero-flower--right" src="/assets/images/canva/hero-flower-attached.png" alt="" />
+          <img class="hero-flower hero-flower--left" src="/assets/images/enhanced/canva/hero-flower-attached.webp" alt="" />
+          <img class="hero-flower hero-flower--right" src="/assets/images/enhanced/canva/hero-flower-attached.webp" alt="" />
           <div
             class="hero-carousel"
             role="region"
@@ -49,31 +49,31 @@ export function mountPortfolio(container) {
           >
             <img
               class="hero-carousel-slide is-active"
-              src="/assets/images/carousel/memory-02-garden.jpg"
+              src="/assets/images/enhanced/carousel/memory-02-garden.webp"
               alt="Yanna relaxing in a garden"
               aria-hidden="false"
             />
             <img
               class="hero-carousel-slide"
-              src="/assets/images/carousel/memory-01-celebration.jpg"
+              src="/assets/images/enhanced/carousel/memory-01-celebration.webp"
               alt="Yanna celebrating a school achievement with a friend"
               aria-hidden="true"
             />
             <img
               class="hero-carousel-slide"
-              src="/assets/images/carousel/memory-03-friends.jpg"
+              src="/assets/images/enhanced/carousel/memory-03-friends.webp"
               alt="Yanna spending time with her friends"
               aria-hidden="true"
             />
             <img
               class="hero-carousel-slide"
-              src="/assets/images/carousel/memory-04-campus.jpg"
+              src="/assets/images/enhanced/carousel/memory-04-campus.webp"
               alt="Yanna posing by a campus window"
               aria-hidden="true"
             />
             <img
               class="hero-carousel-slide"
-              src="/assets/images/carousel/memory-05-view.jpg"
+              src="/assets/images/enhanced/carousel/memory-05-view.webp"
               alt="Yanna enjoying a mountain view"
               aria-hidden="true"
             />
@@ -84,7 +84,7 @@ export function mountPortfolio(container) {
           <div class="profile-heading" data-scroll-reveal>
             <img
               class="profile-photo"
-              src="/assets/images/canva/profile-photo.png"
+              src="/assets/images/enhanced/canva/profile-photo.webp"
               alt="Riyanna Jelaine E. Monte"
             />
             <svg class="profile-arrow" viewBox="0 0 128 72" aria-hidden="true">
@@ -128,22 +128,22 @@ export function mountPortfolio(container) {
             <h3 id="interests-title">Personal Interest</h3>
             <div class="interest-grid">
               <article class="interest-card">
-                <img class="interest-icon" src="/assets/images/canva/interest-creativity.png" alt="" />
+                <img class="interest-icon" src="/assets/images/enhanced/canva/interest-creativity.webp" alt="" />
                 <h4>Creativity</h4>
                 <p>Bringing ideas to life through imagination, innovation, and unique perspectives.</p>
               </article>
               <article class="interest-card">
-                <img class="interest-icon" src="/assets/images/canva/interest-development.png" alt="" />
+                <img class="interest-icon" src="/assets/images/enhanced/canva/interest-development.webp" alt="" />
                 <h4>Development</h4>
                 <p>Transforming ideas into functional and innovative digital solutions through coding and problem-solving.</p>
               </article>
               <article class="interest-card">
-                <img class="interest-icon" src="/assets/images/canva/interest-crafts.png" alt="" />
+                <img class="interest-icon" src="/assets/images/enhanced/canva/interest-crafts.webp" alt="" />
                 <h4>Arts &amp; Crafts</h4>
                 <p>Expressing creativity through handmade creations, artistic designs, and attention to detail.</p>
               </article>
               <article class="interest-card">
-                <img class="interest-icon" src="/assets/images/canva/interest-leadership.png" alt="" />
+                <img class="interest-icon" src="/assets/images/enhanced/canva/interest-leadership.webp" alt="" />
                 <h4>Leadership</h4>
                 <p>Inspiring teamwork, taking initiative, and guiding others toward shared goals.</p>
               </article>
@@ -168,7 +168,7 @@ export function mountPortfolio(container) {
           <div class="journey-spread" data-scroll-reveal>
             <img
               class="journey-book-art"
-              src="/assets/images/canva/journey-open-book.png"
+              src="/assets/images/enhanced/canva/journey-open-book.webp"
               alt=""
               aria-hidden="true"
             />
@@ -241,8 +241,8 @@ export function mountPortfolio(container) {
 
         <div class="portfolio-divider" aria-hidden="true">
           <div class="portfolio-divider__track">
-            <img class="portfolio-divider__image" src="/assets/images/canva/portfolio-border.png" alt="" />
-            <img class="portfolio-divider__image" src="/assets/images/canva/portfolio-border.png" alt="" />
+            <img class="portfolio-divider__image" src="/assets/images/enhanced/canva/portfolio-border.webp" alt="" />
+            <img class="portfolio-divider__image" src="/assets/images/enhanced/canva/portfolio-border.webp" alt="" />
           </div>
         </div>
 
@@ -273,9 +273,9 @@ export function mountPortfolio(container) {
               data-project-section="3-IT11"
               data-project-date="November 1, 2026"
               data-project-description="Designed and developed a personal portfolio website to introduce myself and present my education, experiences, and creative work in one place. I built a responsive interface with HTML, CSS, and JavaScript, then organized the content into clear sections visitors can explore through smooth navigation. Custom visuals, light and dark themes, an interactive photo carousel, and filterable project galleries help the site reflect my personality while keeping it easy to use across phones, tablets, and desktops. This project brought my design and front-end development skills together in a polished, accessible portfolio."
-              data-project-gallery='[{"src":"/assets/images/projects/personal-portfolio-home.png","label":"Portfolio Home Page","alt":"Desktop screenshot of the personal portfolio homepage with a welcome message, photo carousel, and profile section"},{"src":"/assets/images/projects/personal-portfolio-journey.png","label":"Education and Experience","alt":"Desktop screenshot of the portfolio journey section showing education and experience timelines in an illustrated open book"},{"src":"/assets/images/projects/personal-portfolio-projects.png","label":"Featured Projects","alt":"Desktop screenshot of the portfolio featured projects section displaying project category filters and a low-fidelity prototype card"},{"src":"/assets/images/projects/personal-portfolio-skills.png","label":"Technical Skills","alt":"Desktop screenshot of the portfolio technical skills section with development, design, and professional skills folders"},{"src":"/assets/images/projects/personal-portfolio-contact.png","label":"Contact Me","alt":"Desktop screenshot of the portfolio contact section featuring a message form inside a pink postage stamp frame"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/personal-portfolio-home.webp","label":"Portfolio Home Page","alt":"Desktop screenshot of the personal portfolio homepage with a welcome message, photo carousel, and profile section"},{"src":"/assets/images/enhanced/projects/personal-portfolio-journey.webp","label":"Education and Experience","alt":"Desktop screenshot of the portfolio journey section showing education and experience timelines in an illustrated open book"},{"src":"/assets/images/enhanced/projects/personal-portfolio-projects.webp","label":"Featured Projects","alt":"Desktop screenshot of the portfolio featured projects section displaying project category filters and a low-fidelity prototype card"},{"src":"/assets/images/enhanced/projects/personal-portfolio-skills.webp","label":"Technical Skills","alt":"Desktop screenshot of the portfolio technical skills section with development, design, and professional skills folders"},{"src":"/assets/images/enhanced/projects/personal-portfolio-contact.webp","label":"Contact Me","alt":"Desktop screenshot of the portfolio contact section featuring a message form inside a pink postage stamp frame"}]'
             >
-              <img src="/assets/images/projects/personal-portfolio-home.png" alt="Personal portfolio homepage with welcome heading, photo carousel, and profile section" />
+              <img src="/assets/images/enhanced/projects/personal-portfolio-home.webp" alt="Personal portfolio homepage with welcome heading, photo carousel, and profile section" />
               <div class="project-card-copy">
                 <span class="project-tag">Finals</span>
                 <h3>Personal Website Portfolio</h3>
@@ -291,9 +291,9 @@ export function mountPortfolio(container) {
               data-project-date="October 21, 2026"
               data-project-drive="https://drive.google.com/drive/folders/1wpHA-P2tJNP-yfIEiv8OQJ8mGxw43Urt?usp=sharing"
               data-project-description="Created a low-fidelity prototype for my portfolio website, mapping out the landing page and the key sections visitors can explore. This early wireframe helped me organize the content and plan a clear path through the site, from the introduction and About Me section to featured projects, technical skills, and contact information. Sketching the layout first gave me a simple way to explore the page structure and navigation before moving on to the finished visual design."
-              data-project-gallery='[{"src":"/assets/images/projects/portfolio-low-fidelity-wireframe.jpg","label":"Low-Fidelity Wireframe","alt":"Hand-drawn low-fidelity portfolio website prototype showing the landing page and sections for education, featured projects, technical skills, contact, and footer"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/portfolio-low-fidelity-wireframe.webp","label":"Low-Fidelity Wireframe","alt":"Hand-drawn low-fidelity portfolio website prototype showing the landing page and sections for education, featured projects, technical skills, contact, and footer"}]'
             >
-              <img src="/assets/images/projects/portfolio-low-fidelity-wireframe.jpg" alt="Hand-drawn low-fidelity portfolio website prototype" />
+              <img src="/assets/images/enhanced/projects/portfolio-low-fidelity-wireframe.webp" alt="Hand-drawn low-fidelity portfolio website prototype" />
               <div class="project-card-copy">
                 <span class="project-tag">Finals</span>
                 <h3>Portfolio Low-Fidelity Prototype</h3>
@@ -309,9 +309,9 @@ export function mountPortfolio(container) {
               data-project-date="September 02, 2026"
               data-project-drive="https://drive.google.com/drive/folders/1GEgbeHpo9PvaFRS7ZSlwefSZS3LfmlQC?usp=sharing"
               data-project-description="This activity allowed me to explore how creativity and visual communication work together in advertising. I wanted to capture the cozy feeling of autumn while making the featured product the center of attention. Through the combination of illustration, color harmony, and typography, I learned how thoughtful design choices can transform a simple product promotion into an engaging visual experience. It reminded me that effective design is not just about making something attractive, but also about communicating a message that connects with its intended audience."
-              data-project-gallery='[{"src":"/assets/images/projects/brewhaven-sketch.jpg","label":"Traditional Sketch","alt":"Traditional sketch of the BrewHaven Cafe pumpkin-shaped cup and saucer"},{"src":"/assets/images/projects/brewhaven-photoshop.png","label":"Photoshop Artwork","alt":"Digital BrewHaven pumpkin cup artwork open in Photoshop"},{"src":"/assets/images/projects/brewhaven-social-post.png","label":"Social Media Advertisement","alt":"Finished BrewHaven Cafe Pumpkin Spice Latte social media advertisement"},{"src":"/assets/images/projects/brewhaven-landing-page.png","label":"Landing Page Design","alt":"BrewCafe landing page promoting its Pumpkin Spice Latte"},{"src":"/assets/images/projects/brewhaven-newspaper-graphics.png","label":"Newspaper Graphics","alt":"BrewCafe Daily Roast News newspaper graphics featuring autumn coffee"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/brewhaven-sketch.webp","label":"Traditional Sketch","alt":"Traditional sketch of the BrewHaven Cafe pumpkin-shaped cup and saucer"},{"src":"/assets/images/enhanced/projects/brewhaven-photoshop.webp","label":"Photoshop Artwork","alt":"Digital BrewHaven pumpkin cup artwork open in Photoshop"},{"src":"/assets/images/enhanced/projects/brewhaven-social-post.webp","label":"Social Media Advertisement","alt":"Finished BrewHaven Cafe Pumpkin Spice Latte social media advertisement"},{"src":"/assets/images/enhanced/projects/brewhaven-landing-page.webp","label":"Landing Page Design","alt":"BrewCafe landing page promoting its Pumpkin Spice Latte"},{"src":"/assets/images/enhanced/projects/brewhaven-newspaper-graphics.webp","label":"Newspaper Graphics","alt":"BrewCafe Daily Roast News newspaper graphics featuring autumn coffee"}]'
             >
-              <img src="/assets/images/projects/brewhaven-social-post.png" alt="Autumn-themed BrewHaven Cafe Pumpkin Spice Latte social media advertisement" />
+              <img src="/assets/images/enhanced/projects/brewhaven-social-post.webp" alt="Autumn-themed BrewHaven Cafe Pumpkin Spice Latte social media advertisement" />
               <div class="project-card-copy">
                 <span class="project-tag">Midterms</span>
                 <h3>BrewHaven Cafe</h3>
@@ -327,9 +327,9 @@ export function mountPortfolio(container) {
               data-project-date="September 09, 2026"
               data-project-drive="https://drive.google.com/drive/folders/1pqdgn0mkFeL_bV05VmYzgVCAlQzemrtd?usp=sharing"
               data-project-description="This activity challenged me to explore a more adventurous and expressive approach to digital design. Through Trick or Treat, I wanted to capture the excitement, mystery, and playful spirit of Halloween while creating a visually engaging composition. I experimented with contrasting colors, decorative illustrations, and different typography styles to establish a distinct atmosphere. Beyond improving my technical and creative skills, this experience taught me the importance of visual storytelling and how even the smallest design elements can contribute to a larger concept. It reminded me that creativity has no single style or limitation, and that exploring unfamiliar themes can open doors to new ideas and artistic possibilities."
-              data-project-gallery='[{"src":"/assets/images/projects/trick-or-treat-sketch.jpg","label":"Traditional Sketch","alt":"Traditional Trick or Treat Candy Shop poster sketch with green and red lettering"},{"src":"/assets/images/projects/trick-or-treat-digital-poster.png","label":"Digital Poster","alt":"Finished purple Trick or Treat Candy Shop digital poster"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/trick-or-treat-sketch.webp","label":"Traditional Sketch","alt":"Traditional Trick or Treat Candy Shop poster sketch with green and red lettering"},{"src":"/assets/images/enhanced/projects/trick-or-treat-digital-poster.webp","label":"Digital Poster","alt":"Finished purple Trick or Treat Candy Shop digital poster"}]'
             >
-              <img src="/assets/images/projects/trick-or-treat-digital-poster.png" alt="Halloween-themed Trick or Treat Candy Shop digital poster" />
+              <img src="/assets/images/enhanced/projects/trick-or-treat-digital-poster.webp" alt="Halloween-themed Trick or Treat Candy Shop digital poster" />
               <div class="project-card-copy">
                 <span class="project-tag">Midterms</span>
                 <h3>Trick or Treat</h3>
@@ -345,9 +345,9 @@ export function mountPortfolio(container) {
               data-project-date="August 05, 2026"
               data-project-drive="https://drive.google.com/drive/folders/13p6zKQNli5kJ_QEYJgUiZ_uNRbAwX80F?usp=sharing"
               data-project-description="“Berry in Bloom” is more than a simple illustration of strawberries and flowers. It represents the beauty of growth and the journey of becoming. Just like a strawberry begins as a small flower before blossoming into a fruit, I believe that every dream, achievement, and meaningful change starts with something small.&#10;&#10;Through this artwork, I wanted to express that growth is not always immediate or visible. Sometimes, it happens quietly through the lessons we learn, the challenges we overcome, and the courage we find to keep moving forward. Every stage of life has its own beauty, and every small step contributes to the person we are becoming."
-              data-project-gallery='[{"src":"/assets/images/projects/berry-in-bloom-traditional.jpg","label":"Traditional Drawing","alt":"Traditional colored-pencil drawing of strawberries, leaves, and blossoms"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/berry-in-bloom-traditional.webp","label":"Traditional Drawing","alt":"Traditional colored-pencil drawing of strawberries, leaves, and blossoms"}]'
             >
-              <img src="/assets/images/projects/berry-in-bloom-traditional.jpg" alt="Traditional drawing of Berry in Bloom" />
+              <img src="/assets/images/enhanced/projects/berry-in-bloom-traditional.webp" alt="Traditional drawing of Berry in Bloom" />
               <div class="project-card-copy">
                 <span class="project-tag">Prelims</span>
                 <h3>Berry in Bloom</h3>
@@ -363,9 +363,9 @@ export function mountPortfolio(container) {
               data-project-date="August 17, 2026"
               data-project-drive="https://drive.google.com/drive/folders/1inBC-U2iRCou4FBq7cyl9TaWCm43rWQo?usp=sharing"
               data-project-description="Strawcat is more than just a character I created; it is a little reflection of who I am. Behind its cheerful appearance and playful personality lies a representation of my curiosity, imagination, and passion for creating things that bring joy to others.&#10;&#10;I designed Strawcat to embody the parts of myself that I hope to carry throughout my journey: a heart that finds happiness in the simplest things, a mind that never stops exploring possibilities, and the courage to pursue dreams even when the path ahead is uncertain.&#10;&#10;As the little companion guiding visitors through my portfolio, Strawcat symbolizes my journey as both a creative individual and an aspiring professional. Every step it takes represents my willingness to learn, grow, and discover new opportunities. Like Strawcat, I may still be finding my way, but I believe that even the smallest steps can lead to extraordinary destinations."
-              data-project-gallery='[{"src":"/assets/images/projects/strawcat-traditional.jpg","label":"Traditional Drawing","alt":"Traditional Strawcat character and logo sketches"},{"src":"/assets/images/projects/strawcat-photoshop.png","label":"Photoshop Screenshot","alt":"Strawcat badge artwork open in Adobe Photoshop"},{"src":"/assets/images/projects/strawcat-badge-logo.png","label":"Badge Logo","alt":"Finished circular Strawcat badge logo"},{"src":"/assets/images/projects/strawcat-horizontal-logo.png","label":"Horizontal Logo","alt":"Finished horizontal Strawcat logo for Yanna"},{"src":"/assets/images/projects/strawcat-vertical-logo.png","label":"Vertical Logo","alt":"Finished vertical Strawcat logo for Yanna"}]'
+              data-project-gallery='[{"src":"/assets/images/enhanced/projects/strawcat-traditional.webp","label":"Traditional Drawing","alt":"Traditional Strawcat character and logo sketches"},{"src":"/assets/images/enhanced/projects/strawcat-photoshop.webp","label":"Photoshop Screenshot","alt":"Strawcat badge artwork open in Adobe Photoshop"},{"src":"/assets/images/enhanced/projects/strawcat-badge-logo.webp","label":"Badge Logo","alt":"Finished circular Strawcat badge logo"},{"src":"/assets/images/enhanced/projects/strawcat-horizontal-logo.webp","label":"Horizontal Logo","alt":"Finished horizontal Strawcat logo for Yanna"},{"src":"/assets/images/enhanced/projects/strawcat-vertical-logo.webp","label":"Vertical Logo","alt":"Finished vertical Strawcat logo for Yanna"}]'
             >
-              <img src="/assets/images/projects/strawcat-traditional.jpg" alt="Traditional Strawcat character and logo sketches" />
+              <img src="/assets/images/enhanced/projects/strawcat-traditional.webp" alt="Traditional Strawcat character and logo sketches" />
               <div class="project-card-copy">
                 <span class="project-tag">Prelims</span>
                 <h3>Strawcat</h3>
@@ -406,13 +406,13 @@ export function mountPortfolio(container) {
         <section class="skills-section" id="skills" aria-labelledby="technical-skills-title">
           <h2 id="technical-skills-title"><span>Technical Skills</span></h2>
           <div class="skills-file-stage" data-scroll-reveal>
-            <button class="skill-file skill-file--development" type="button" data-skill-image="/assets/images/skills/development-skills-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+            <button class="skill-file skill-file--development" type="button" data-skill-image="/assets/images/enhanced/skills/development-skills-portfolio.webp" aria-expanded="false" aria-controls="skills-open-book">
               <h3>Development Skills</h3>
             </button>
-            <button class="skill-file skill-file--design" type="button" data-skill-image="/assets/images/skills/design-creativity-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+            <button class="skill-file skill-file--design" type="button" data-skill-image="/assets/images/enhanced/skills/design-creativity-portfolio.webp" aria-expanded="false" aria-controls="skills-open-book">
               <h3>Design &amp; Creativity</h3>
             </button>
-            <button class="skill-file skill-file--professional" type="button" data-skill-image="/assets/images/skills/professional-interpersonal-portfolio.png" aria-expanded="false" aria-controls="skills-open-book">
+            <button class="skill-file skill-file--professional" type="button" data-skill-image="/assets/images/enhanced/skills/professional-interpersonal-portfolio.webp" aria-expanded="false" aria-controls="skills-open-book">
               <h3>Professional &amp; Interpersonal Skills</h3>
             </button>
           </div>
@@ -460,7 +460,7 @@ export function mountPortfolio(container) {
             </div>
           </dialog>
           <div class="work-together__decorations" aria-hidden="true">
-            <img class="work-together__flowers" src="/assets/images/contact/contact-flowers.png" alt="" />
+            <img class="work-together__flowers" src="/assets/images/enhanced/contact/contact-flowers.webp" alt="" />
           </div>
         </div>
       </section>
