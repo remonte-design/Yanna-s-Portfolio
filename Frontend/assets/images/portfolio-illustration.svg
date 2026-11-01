@@ -27,7 +27,7 @@
     .card {
       transform-box: view-box;
       transform-origin: 0 0;
-      animation: card-to-center 1.62s 7.47s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+      animation: card-to-center 1.2s 7.47s cubic-bezier(0.2, 0.75, 0.25, 1) both;
     }
 
     .card-trigger {
